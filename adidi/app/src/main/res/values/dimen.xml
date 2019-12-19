@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chuthuong">20dp</dimen>
+    <dimen name="chunho">15dp</dimen>
+    <dimen name="khoangcach">40dp</dimen>
+    <dimen name="card">8dp</dimen>
+    <dimen name="pading_top">10dp</dimen>
+    <dimen name="pading_left">20dp</dimen>
+    <dimen name="pading_right">20dp</dimen>
+    <dimen name="pading_botom">5dp</dimen>
+    <dimen name="pading">15dp</dimen>
+    <dimen name="pading_otp">60dp</dimen>
+    <dimen name="magin_left">30dp</dimen>
+    <dimen name="magin_right">30dp</dimen>
+    <dimen name="magin_top">10dp</dimen>
+    <dimen name="magin_botom">20dp</dimen>
+    <dimen name="height_Appbar">60dp</dimen>
+    <dimen name="height_Cardview">140dp</dimen>
+    <dimen name="magin">20dp</dimen>
+    <dimen name="radius">10dp</dimen>
+    <dimen name="height_Cardview_service">130dp</dimen>
+    <dimen name="width_Cardview_service">130dp</dimen>
+    <dimen name="card_slider">30dp</dimen>
+    <dimen name="height_linear">300dp</dimen>
+</resources>

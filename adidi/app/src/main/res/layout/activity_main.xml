@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:scaleType="centerCrop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/background"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <Button
+            android:fontFamily="serif"
+            android:id="@+id/btn_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/magin_left"
+            android:layout_marginRight="@dimen/magin_right"
+            android:background="@drawable/select_create"
+            android:text="@string/create_acount"
+            android:textColor="@color/whilte" />
+
+        <Button
+            android:fontFamily="serif"
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/magin_left"
+            android:layout_marginTop="@dimen/magin_top"
+            android:layout_marginRight="@dimen/magin_right"
+            android:layout_marginBottom="@dimen/magin_botom"
+            android:background="@drawable/select_login"
+            android:text="@string/login"
+            android:textColor="@color/whilte" />
+    </LinearLayout>
+</RelativeLayout>

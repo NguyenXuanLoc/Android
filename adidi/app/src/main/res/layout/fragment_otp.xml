@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:fontFamily="serif"
+        android:layout_marginBottom="@dimen/pading_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/khoangcach"
+        android:background="@drawable/shape_edt"
+        android:hint="@string/didong"
+        android:padding="@dimen/pading_top" />
+
+    <Button
+        android:layout_marginTop="@dimen/pading_otp"
+        android:text="@string/InputOTP"
+        android:fontFamily="serif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/khoangcach"
+        android:layout_marginRight="@dimen/khoangcach"
+        android:background="@drawable/select_create"
+        android:hint="@string/login"
+        android:textColor="@color/whilte" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/khoangcach"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/otp"
+        android:textColor="@color/whilte"
+        android:textSize="@dimen/chuthuong" />
+</LinearLayout>

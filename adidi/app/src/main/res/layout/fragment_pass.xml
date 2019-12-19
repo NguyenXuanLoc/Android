@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/khoangcach"
+        android:background="@color/whilte"
+        app:cardCornerRadius="@dimen/card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_number"
+                android:fontFamily="serif"
+                android:paddingLeft="@dimen/pading_top"
+                android:paddingBottom="@dimen/pading_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/didong"
+                 />
+
+            <EditText
+                android:id="@+id/edt_pass"
+                android:fontFamily="serif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/pass"
+                android:padding="@dimen/pading_top" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/btn_Login"
+        android:text="@string/login"
+        android:fontFamily="serif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/khoangcach"
+        android:layout_marginRight="@dimen/khoangcach"
+        android:background="@drawable/select_create"
+        android:textColor="@color/whilte" />
+    <TextView
+        android:id="@+id/txt_forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/khoangcach"
+        android:fontFamily="serif"
+        android:text="@string/forgotpass"
+        android:textColor="@color/whilte"
+        android:textSize="@dimen/chuthuong" />
+</LinearLayout>

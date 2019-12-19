@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_create_acount">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/black_24dp" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="serif"
+            android:text="@string/quenmatkhau"
+            android:textColor="@color/whilte"
+            android:textSize="@dimen/chuthuong" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txt_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/khoangcach"
+        android:layout_marginRight="@dimen/khoangcach"
+        android:background="@drawable/shape_edt"
+        android:fontFamily="serif"
+        android:hint="@string/nhapma"
+        android:padding="@dimen/pading" />
+
+    <Button
+        android:id="@+id/btn_xacnhan"
+        android:layout_marginTop="@dimen/pading_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_number"
+        android:layout_marginLeft="@dimen/khoangcach"
+        android:layout_marginRight="@dimen/khoangcach"
+        android:background="@drawable/select_create"
+        android:fontFamily="serif"
+        android:text="@string/xacnhan"
+        android:textColor="@color/whilte" />
+
+    <TextView
+        android:layout_below="@id/btn_xacnhan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/khoangcach"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/maxacnhan"
+        android:textColor="@color/whilte"
+        android:textSize="@dimen/chunho" />
+</RelativeLayout>

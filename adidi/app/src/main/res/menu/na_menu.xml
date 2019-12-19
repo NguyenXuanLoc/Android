@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/me_main"
+        android:icon="@drawable/na_main"
+        app:showAsAction="always" android:title="@string/me_main"/>
+    <item
+        android:id="@+id/me_oder"
+        android:icon="@drawable/na_list"
+        app:showAsAction="always" android:title="@string/me_oder"/>    <item
+    android:id="@+id/me_no"
+    android:icon="@drawable/na_bell"
+    app:showAsAction="always" android:title="@string/me_nofication"/>    <item
+    android:id="@+id/me_funtion"
+    android:icon="@drawable/na_function_24dp"
+    app:showAsAction="always" android:title="@string/me_funtion"/>
+
+
+</menu>
