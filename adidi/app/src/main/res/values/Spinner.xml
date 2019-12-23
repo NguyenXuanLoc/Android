@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Spinner_Grounp">
+        <item>Phổ thông</item>
+        <item>Điện máy</item>
+        <item>Tivi</item>
+        <item>Tủ lạnh</item>
+        <item>Máy giặt</item>
+        <item>Máy sấy</item>
+        <item>Điều hòa</item>
+        <item>Tủ đông</item>
+        <item>Máy nước nóng</item>
+        <item>Máy lọc nước</item>
+        <item>Máy hút bụi</item>
+    </string-array>
+</resources>

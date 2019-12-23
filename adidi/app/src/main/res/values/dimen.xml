@@ -15,11 +15,21 @@
     <dimen name="magin_top">10dp</dimen>
     <dimen name="magin_botom">20dp</dimen>
     <dimen name="height_Appbar">60dp</dimen>
-    <dimen name="height_Cardview">140dp</dimen>
+    <dimen name="height_Cardview">180dp</dimen>
     <dimen name="magin">20dp</dimen>
     <dimen name="radius">10dp</dimen>
     <dimen name="height_Cardview_service">130dp</dimen>
     <dimen name="width_Cardview_service">130dp</dimen>
     <dimen name="card_slider">30dp</dimen>
     <dimen name="height_linear">300dp</dimen>
+    <dimen name="card_max">10dp</dimen>
+    <dimen name="card_height_semore">15dp</dimen>
+    <dimen name="card_radius_semore">15dp</dimen>
+    <dimen name="width_textview_toolbar">30dp</dimen>
+    <dimen name="height_textview_toolbar">20dp</dimen>
+    <dimen name="magin_textview">10dp</dimen>
+    <dimen name="magin_Card">10dp</dimen>
+    <dimen name="magin_img">5dp</dimen>
+    <dimen name="radius_Card">10dp</dimen>
+    <dimen name="radius_layout">20dp</dimen>
 </resources>

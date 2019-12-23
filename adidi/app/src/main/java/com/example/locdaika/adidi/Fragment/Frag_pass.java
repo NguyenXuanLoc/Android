@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.locdaika.adidi.Activity.MainActivity;
 import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Data.Data_Acount;
 import com.example.locdaika.adidi.R;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ public class Frag_pass extends Fragment {
     View view;
     EditText edt_Number, edt_Pass;
     Button btnLogin;
-    static boolean Check = true;
+    Data_Acount acount;
 
     @Nullable
     @Override
@@ -38,6 +39,7 @@ public class Frag_pass extends Fragment {
     }
 
     private void init() {
+        acount = new Data_Acount();
         edt_Number = view.findViewById(R.id.edt_number);
         edt_Pass = view.findViewById(R.id.edt_pass);
         btnLogin = view.findViewById(R.id.btn_Login);
@@ -61,39 +63,29 @@ public class Frag_pass extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checkNull() == true) {
-                    int check=0;
                     String Email = edt_Number.getText().toString();
                     String Pass = edt_Pass.getText().toString();
-                    for (int i = 0; i < MainActivity.arr_acount.size(); i++) {
-                        if (Email.equalsIgnoreCase(MainActivity.arr_acount.get(i).getEmail()) &&
-                                Pass.equalsIgnoreCase(MainActivity.arr_acount.get(i).getPass())) {
-                            check=1;
-                            break;
-                        }
-                        else check =0;
-                    }
-                    if (check==1){
-                        Intent intent = new Intent(getActivity(),Main_page.class);
+                    if (acount.GetAcount(MainActivity.preferences, Email, Pass) == true) {
+                        Intent intent = new Intent(getActivity(), Main_page.class);
                         startActivity(intent);
-                    }
-                    else Toast.makeText(getActivity(), getResources().getText(R.string.wrongLogin), Toast.LENGTH_SHORT).show();
-
+                    } else
+                        Toast.makeText(getActivity(), getResources().getText(R.string.wrongLogin), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     public boolean checkNull() {
-        int check=1;
+        int check = 1;
         if (edt_Pass.getText().length() == 0) {
             edt_Pass.setError(getResources().getString(R.string.check));
-            check=0;
+            check = 0;
         }
         if (edt_Number.getText().length() == 0) {
             edt_Number.setError(getResources().getString(R.string.check));
-            check=0;
+            check = 0;
         }
-        if (check==0) return false;
+        if (check == 0) return false;
         return true;
     }
 }

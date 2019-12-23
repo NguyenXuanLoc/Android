@@ -2,6 +2,7 @@ package com.example.locdaika.adidi.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.locdaika.adidi.Data.Data_Acount;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Acount_model;
 
@@ -24,6 +26,7 @@ public class Create_Activity extends AppCompatActivity {
     boolean checked = true;
     String FirtName, LastName, Number, Email, Pass, Code;
     ImageView img_back;
+    Data_Acount acount = new Data_Acount();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +69,19 @@ public class Create_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 EventEditext();
                 if (checked == true) {
+                    acount.RemoveAcount(MainActivity.preferences, FirtName, LastName, Number, Email, Pass, Code);
                     FirtName = edt_Firstname.getText().toString();
                     LastName = edt_Lastname.getText().toString();
                     Number = edt_Number.getText().toString();
                     Email = edt_Email.getText().toString();
                     Pass = edt_Pass.getText().toString();
                     Code = edt_Code.getText().toString();
-                    Acount_model model = new Acount_model(FirtName,LastName,Number,Email,Pass,Code);
-                    if (checkAcount(Number,Email,model)== true){
-                        MainActivity.arr_acount.add(new Acount_model(FirtName, LastName, Number, Email, Pass, Code));
+                        acount.RemoveAcount(MainActivity.preferences, Data_Acount.FirtName, Data_Acount.LastName, Data_Acount.Number, Data_Acount.Email, Data_Acount.Pass, Data_Acount.Code);
+                        acount.CreateAcount(MainActivity.preferences, FirtName, LastName, Number, Email, Pass, Code);
                         Toast.makeText(Create_Activity.this, getResources().getText(R.string.createAcountSuccess), Toast.LENGTH_SHORT).show();
                         finish();
                     }
-                    else {
-                        Toast.makeText(Create_Activity.this, getResources().getText(R.string.createAcountFail), Toast.LENGTH_SHORT).show();
-                    }
-                } else
+                    else
                     Toast.makeText(Create_Activity.this, getResources().getText(R.string.checkNull), Toast.LENGTH_SHORT).show();
                 checked = true;
             }
@@ -113,21 +113,6 @@ public class Create_Activity extends AppCompatActivity {
             edt_Code.setError(getResources().getString(R.string.check));
             checked = false;
         }
-    }
-
-    private boolean checkAcount(String Number, String Email, Acount_model modelAdd) {
-        for (int i = 0; i < MainActivity.arr_acount.size(); i++) {
-            Acount_model model = MainActivity.arr_acount.get(i);
-            if (Number.equalsIgnoreCase(model.getNumber()) ||
-                    Email.equalsIgnoreCase(model.getEmail())) {
-                Toast.makeText(this, getResources().getText(R.string.exist), Toast.LENGTH_SHORT).show();
-                return false;
-            } else {
-                MainActivity.arr_acount.add(modelAdd);
-                return true;
-            }
-        }
-        return true;
     }
 
     private void EventRules() {

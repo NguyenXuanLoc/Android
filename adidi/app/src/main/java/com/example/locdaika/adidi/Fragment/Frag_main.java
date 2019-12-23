@@ -1,35 +1,30 @@
 package com.example.locdaika.adidi.Fragment;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.locdaika.adidi.Activity.Main_page;
-import com.example.locdaika.adidi.Adapter.Adapter_Slider;
 import com.example.locdaika.adidi.Adapter.Adapter_service;
+import com.example.locdaika.adidi.Data.Data_Service;
+import com.example.locdaika.adidi.Method.Method_Fragmain;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Pager_prom_Adapter;
-import com.example.locdaika.adidi.model.Service_model;
-import com.example.locdaika.adidi.model.Slider_model;
-import com.smarteist.autoimageslider.IndicatorAnimations;
-import com.smarteist.autoimageslider.SliderView;
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
-
-import java.util.ArrayList;
+import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.AnimationType;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -37,25 +32,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import static com.example.locdaika.adidi.R.drawable.active_dot;
-
 public class Frag_main extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     Toolbar toolbar;
     String TAG = "SCROLL";
     View view;
+
     RecyclerView re_Service;
     Adapter_service adapter_service;
-    ArrayList<Service_model> arr;
     NestedScrollView scrollView;
 
     ViewPager Pager_Prom;
     Pager_prom_Adapter Adapter_Prom;
-    SpringDotsIndicator Dots_prom;
+    PageIndicatorView Dots_prom;
 
     ViewPager Pager_Discover;
     Pager_prom_Adapter Adapter_Discover;
-    SpringDotsIndicator Dots_Discover;
+    PageIndicatorView Dots_Discover;
+    Data_Service data_service;
+Method_Fragmain methodSub;
 
     @Nullable
     @Override
@@ -67,93 +62,98 @@ public class Frag_main extends Fragment {
     }
 
     private void init() {
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        data_service = new Data_Service();
         swipeRefreshLayout = view.findViewById(R.id.Refreshlayout);
         Dots_Discover = view.findViewById(R.id.dots_discover);
         Pager_Discover = view.findViewById(R.id.pager_discover);
         Adapter_Discover = new Pager_prom_Adapter(Main_page.arr_discover, getActivity());
         Pager_Discover.setAdapter(Adapter_Discover);
+
         Dots_Discover.setViewPager(Pager_Discover);
         Pager_Discover.setPadding(30, 0, 130, 0);
-
         Dots_prom = view.findViewById(R.id.dots_prom);
         Pager_Prom = view.findViewById(R.id.pager_Prom);
         Adapter_Prom = new Pager_prom_Adapter(Main_page.arr_prom, getActivity());
         Pager_Prom.setAdapter(Adapter_Prom);
         Dots_prom.setViewPager(Pager_Prom);
         Pager_Prom.setPadding(30, 0, 130, 0);
+
         toolbar = view.findViewById(R.id.toolbar);
         scrollView = view.findViewById(R.id.scrollView);
-        arr = new ArrayList<>();
-        adapter_service = new Adapter_service(getActivity(), arr);
+
+        adapter_service = new Adapter_service(getActivity(), Main_page.arr_Service);
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 3, RecyclerView.VERTICAL, false);
         re_Service = view.findViewById(R.id.re_service);
         re_Service.setAdapter(adapter_service);
         re_Service.setLayoutManager(manager);
-    }
 
-    private void eventHandle() {
-        eventToolbar();
-        eventScroll();
-        add_service();
-        eventRefresh();
     }
-
-    private void eventRefresh() {
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.orange));
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+    private void DostPorm() {
+        Dots_prom = view.findViewById(R.id.dots_prom);
+        Dots_prom.setCount(5); // specify total count of indicators
+        Dots_prom.setSelection(2);
+        Dots_prom.setViewPager(Pager_Prom);
+        Dots_prom.setAnimationType(AnimationType.DROP);
+        Pager_Prom.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                    }
-                }, 500);
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Dots_prom.setSelection(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
+    private void DostDiscover() {
+        Dots_Discover = view.findViewById(R.id.dots_discover);
+        Dots_Discover.setCount(5); // specify total count of indicators
+        Dots_Discover.setSelection(2);
+        Dots_Discover.setViewPager(Pager_Discover);
+        Dots_Discover.setAnimationType(AnimationType.DROP);
+        Pager_Discover.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    private void eventScroll() {
-        if (scrollView != null) {
-            scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+            }
 
-                    if (scrollY > oldScrollY) {
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.whilte));
-                        Log.d(TAG, "Scroll DOWN");
-                    }
-                    if (scrollY == 0) {
-                        Log.d(TAG, "TOP SCROLL");
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.orange));
-                    }
-                }
-            });
-        }
+            @Override
+            public void onPageSelected(int position) {
+                Dots_Discover.setSelection(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
-
-    private void eventToolbar() {
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void add_service() {
-        arr.add(new Service_model(R.drawable.service_delivery, getString(R.string.service_delivery)));
-        arr.add(new Service_model(R.drawable.service_installation, getString(R.string.service_install)));
-        arr.add(new Service_model(R.drawable.service_ship, getString(R.string.service_ship)));
-        arr.add(new Service_model(R.drawable.service_guarantee, getString(R.string.service_guarantee)));
-        arr.add(new Service_model(R.drawable.service_rent, getString(R.string.service_rent)));
+    private void eventHandle() {
+        methodSub = new Method_Fragmain(getActivity());
+        data_service.add_service();
         adapter_service.notifyDataSetChanged();
+        methodSub.eventScroll(scrollView,toolbar);
+        methodSub.eventRefresh(swipeRefreshLayout);
+        DostPorm();
+        DostDiscover();
     }
-
-    private void TwoWord(String text) {
-        String t = "";
-        String[] arr = text.split(" ");
-        for (int i = 0; i < arr.length; i++) {
-            if (i < 2) {
-                t += arr[i] + " ";
-            } else t += "\n" + arr[i];
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void setStatusBarGradiant(Activity activity, int drawable) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            Drawable background = activity.getResources().getDrawable(drawable);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
+            window.setNavigationBarColor(activity.getResources().getColor(android.R.color.transparent));
+            window.setBackgroundDrawable(background);
         }
-        Toast.makeText(getActivity(), t, Toast.LENGTH_SHORT).show();
     }
 }

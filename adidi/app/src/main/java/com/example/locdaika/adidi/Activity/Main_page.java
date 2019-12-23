@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.locdaika.adidi.Fragment.Frag_Oder;
+import com.example.locdaika.adidi.Fragment_Service.Frag_Oder;
 import com.example.locdaika.adidi.Fragment.Frag_main;
 import com.example.locdaika.adidi.Fragment.Frag_notification;
 import com.example.locdaika.adidi.R;
+import com.example.locdaika.adidi.model.Product_model;
+import com.example.locdaika.adidi.model.Service_model;
 import com.example.locdaika.adidi.model.Slider_model;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,6 +23,8 @@ public class Main_page extends AppCompatActivity {
     BottomNavigationView btnNa;
     public static ArrayList<Slider_model> arr_prom;
     public static ArrayList<Slider_model> arr_discover;
+    public static ArrayList<Service_model> arr_Service;
+    public static ArrayList<Product_model> arr_Product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,8 @@ public class Main_page extends AppCompatActivity {
     }
 
     private void init() {
+        arr_Product = new ArrayList<>();
+        arr_Service = new ArrayList<>();
         arr_discover = new ArrayList<>();
         arr_prom = new ArrayList<>();
         btnNa = findViewById(R.id.btnNa);

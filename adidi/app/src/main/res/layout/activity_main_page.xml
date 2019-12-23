@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        app:itemTextColor="@color/orange"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/na_menu" />
 </LinearLayout>

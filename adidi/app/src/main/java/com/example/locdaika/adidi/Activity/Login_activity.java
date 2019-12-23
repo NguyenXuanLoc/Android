@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.locdaika.adidi.Data.Data_Acount;
 import com.example.locdaika.adidi.Fragment.Frag_Otp;
 import com.example.locdaika.adidi.Fragment.Frag_pass;
 import com.example.locdaika.adidi.R;
@@ -19,6 +20,7 @@ import com.google.android.material.tabs.TabLayout;
 public class Login_activity extends AppCompatActivity {
     TabLayout tabLayout;
     ImageView img_back;
+    Data_Acount acount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class Login_activity extends AppCompatActivity {
     }
 
     private void init() {
+        acount = new Data_Acount();
         img_back = findViewById(R.id.img_back);
         FragmentTransaction transaction;
         Fragment fragment = new Frag_pass();

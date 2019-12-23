@@ -31,6 +31,7 @@
                 android:background="@color/orange" />
 
             <TextView
+                android:fontFamily="serif"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:layout_centerHorizontal="true"
@@ -44,6 +45,7 @@
                 android:textSize="@dimen/chuthuong" />
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_name_promtion"
                 android:id="@+id/txt_Info_promtion"
@@ -56,6 +58,7 @@
                 android:textSize="@dimen/chuthuong" />
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/txt_Info_promtion"
                 android:id="@+id/txt_seemore_promtion"

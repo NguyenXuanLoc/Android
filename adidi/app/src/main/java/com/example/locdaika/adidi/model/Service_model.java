@@ -2,10 +2,12 @@ package com.example.locdaika.adidi.model;
 
 import android.view.View;
 
+import java.io.Serializable;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Service_model{
+public class Service_model implements Serializable {
     int Image;
     String Name;
 

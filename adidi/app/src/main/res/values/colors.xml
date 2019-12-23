@@ -9,4 +9,8 @@
     <color name="black">#000000</color>
     <color name="grey">#eae7e7</color>
     <color name="backdround">#F2F2F2</color>
+    <color name="red_toolbar">	#EF5529</color>
+    <color name="orange_toobar">#EB7D30</color>
+    <color name="gray">#d2cdcd</color>
+    <color name="grey_black">#545050</color>
 </resources>
