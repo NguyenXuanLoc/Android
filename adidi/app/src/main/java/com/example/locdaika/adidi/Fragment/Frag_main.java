@@ -50,7 +50,7 @@ public class Frag_main extends Fragment {
     Pager_prom_Adapter Adapter_Discover;
     PageIndicatorView Dots_Discover;
     Data_Service data_service;
-Method_Fragmain methodSub;
+    Method_Fragmain methodSub;
 
     @Nullable
     @Override
@@ -90,6 +90,7 @@ Method_Fragmain methodSub;
         re_Service.setLayoutManager(manager);
 
     }
+
     private void DostPorm() {
         Dots_prom = view.findViewById(R.id.dots_prom);
         Dots_prom.setCount(5); // specify total count of indicators
@@ -113,6 +114,7 @@ Method_Fragmain methodSub;
             }
         });
     }
+
     private void DostDiscover() {
         Dots_Discover = view.findViewById(R.id.dots_discover);
         Dots_Discover.setCount(5); // specify total count of indicators
@@ -136,15 +138,17 @@ Method_Fragmain methodSub;
             }
         });
     }
+
     private void eventHandle() {
         methodSub = new Method_Fragmain(getActivity());
         data_service.add_service();
         adapter_service.notifyDataSetChanged();
-        methodSub.eventScroll(scrollView,toolbar);
+        methodSub.eventScroll(scrollView, toolbar);
         methodSub.eventRefresh(swipeRefreshLayout);
         DostPorm();
         DostDiscover();
     }
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void setStatusBarGradiant(Activity activity, int drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

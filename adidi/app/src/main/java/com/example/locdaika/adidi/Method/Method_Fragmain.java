@@ -57,7 +57,7 @@ public class Method_Fragmain extends AppCompatActivity {
                     }
                     if (scrollY == 0) {
                      //   Log.d(TAG, "TOP SCROLL");
-                        toolbar.setBackground(context.getResources().getDrawable(R.drawable.background_toolbar));
+                        toolbar.setBackground(context.getResources().getDrawable(R.drawable.color_toolbar));
                     //    setStatusBarGradiant(getActivity(), R.drawable.color_statusbar);
                         //  toolbar.setBackgroundColor(getResources().getColor(R.color.orange));
                     }
