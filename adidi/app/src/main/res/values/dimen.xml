@@ -13,6 +13,7 @@
     <dimen name="magin_left">30dp</dimen>
     <dimen name="magin_right">30dp</dimen>
     <dimen name="magin_top">10dp</dimen>
+    <dimen name="maginTop_Frag">30dp</dimen>
     <dimen name="magin_botom">20dp</dimen>
     <dimen name="height_Appbar">60dp</dimen>
     <dimen name="height_Cardview">180dp</dimen>
@@ -32,4 +33,5 @@
     <dimen name="magin_img">5dp</dimen>
     <dimen name="radius_Card">10dp</dimen>
     <dimen name="radius_layout">20dp</dimen>
+    <dimen name="cardElevation">10dp</dimen>
 </resources>

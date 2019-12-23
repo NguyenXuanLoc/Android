@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backdround">
@@ -60,6 +61,7 @@
             </RelativeLayout>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/Refreshlayout"
         style="@style/Botomnavigation"
@@ -80,26 +82,32 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp">
+                    android:layout_height="wrap_content">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:layout_below="@id/toolbar"
                         android:scaleType="fitXY"
                         android:src="@drawable/color_toolbar" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_Cardview"
                         android:layout_margin="@dimen/magin"
-                        app:cardCornerRadius="@dimen/radius">
+                        android:outlineAmbientShadowColor="@color/black"
+                        app:cardCornerRadius="@dimen/radius"
+                        app:cardElevation="@dimen/cardElevation">
+
                         <ImageView
-                            android:background="@drawable/shape_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@drawable/shape_img"
                             android:scaleType="fitXY"
                             android:src="@drawable/card" />
                     </androidx.cardview.widget.CardView>
                 </FrameLayout>
+
                 <TextView
                     style="@style/textview_indam"
                     android:layout_width="wrap_content"
@@ -131,14 +139,14 @@
 
                 <com.smarteist.autoimageslider.IndicatorView.PageIndicatorView
                     android:id="@+id/dots_prom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     app:piv_animationType="scale_down"
                     app:piv_dynamicCount="true"
                     app:piv_interactiveAnimation="true"
                     app:piv_selectedColor="@color/orange"
-                    app:piv_unselectedColor="@color/gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal" />
+                    app:piv_unselectedColor="@color/gray" />
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/pager_Prom"
@@ -155,16 +163,17 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="@string/discover" />
+
                 <com.smarteist.autoimageslider.IndicatorView.PageIndicatorView
                     android:id="@+id/dots_discover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     app:piv_animationType="scale"
                     app:piv_dynamicCount="true"
                     app:piv_interactiveAnimation="true"
                     app:piv_selectedColor="@color/orange"
-                    app:piv_unselectedColor="@color/gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal" />
+                    app:piv_unselectedColor="@color/gray" />
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/pager_discover"
