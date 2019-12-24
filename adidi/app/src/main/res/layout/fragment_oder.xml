@@ -127,6 +127,9 @@
                     android:src="@drawable/up_arrow" />
 
                 <TextView
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:maxLines="1"
                     android:id="@+id/txt_Add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,7 +150,7 @@
             <LinearLayout
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.5dp"
                 android:layout_below="@id/layout"
                 android:layout_marginTop="@dimen/magin_top"
                 android:background="@color/gray"
@@ -177,7 +180,7 @@
                     android:layout_weight="1"
                     android:fontFamily="serif"
                     android:text="@string/where"
-                    android:textColor="@color/black" />
+                     />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -188,7 +191,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.5dp"
                 android:layout_below="@id/layout2"
                 android:layout_marginTop="5dp"
                 android:background="@color/gray" />

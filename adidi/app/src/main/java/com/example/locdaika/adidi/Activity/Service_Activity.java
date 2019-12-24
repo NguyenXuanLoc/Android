@@ -56,6 +56,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     private static final float MIN_DISTANCE = 1000;
     Method_Service method_service;
     Geocoder geocoder;
+    public static String test = "OK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +70,13 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         Map();
         get_Intent();
     }
+
     @SuppressLint("MissingPermission")
     private void init() {
         geocoder = new Geocoder(this, Locale.getDefault());
         method_service = new Method_Service(this);
         locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
-      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this); //You can also use LocationManager.GPS_PROVIDER and LocationManager.PASSIVE_PROVIDER
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this); //You can also use LocationManager.GPS_PROVIDER and LocationManager.PASSIVE_PROVIDER
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         layout = findViewById(R.id.mylayout);
         toolbar = findViewById(R.id.toolbar);
@@ -103,7 +105,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         mMap.setOnCameraMoveStartedListener(this);
         mMap.setOnCameraMoveListener(this);
         mMap.setOnCameraMoveCanceledListener(this);
-        LatLng lng = new LatLng(21.093089, 105.681761);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -161,8 +162,9 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         locationManager.removeUpdates(this);
         try {
             method_service.getAddress(geocoder, location.getLatitude(), location.getLongitude());
-          // EventBus.getDefault().post(method_service.address.toString());
-            // Toast.makeText(this, method_service.address.toString(), Toast.LENGTH_SHORT).show();
+            if (!method_service.address.isEmpty()){
+                EventBus.getDefault().post(method_service.address.toString());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

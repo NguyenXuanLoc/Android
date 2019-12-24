@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Activity.Service_Activity;
 import com.example.locdaika.adidi.Adapter.Adapter_ProductGr;
 import com.example.locdaika.adidi.Data.Data_Product_gr;
 import com.example.locdaika.adidi.Dialog.Dialog_product;
@@ -75,8 +76,6 @@ public class Frag_Oder extends Fragment {
 
     private void handleEvent() {
         eventProduct();
-        // Log.d("result","OK");
-
     }
 
     private void eventProduct() {
@@ -103,10 +102,5 @@ public class Frag_Oder extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onResultReceived(String result) {
         txt_Adress.setText(result.toString());
-        Log.d("result", result.toString());
-        // Toast.makeText(getActivity(),result, Toast.LENGTH_SHORT).show();
     }
-
-    ;
-
 }
