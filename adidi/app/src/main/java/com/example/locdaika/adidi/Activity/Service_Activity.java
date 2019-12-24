@@ -8,7 +8,9 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,10 +22,11 @@ import android.widget.Toast;
 
 import com.example.locdaika.adidi.Fragment_Service.Frag_Oder;
 import com.example.locdaika.adidi.Key.Key_intent;
+import com.example.locdaika.adidi.Method.Method_Service;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Service_model;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,13 +35,27 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class Service_Activity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveStartedListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener {
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.IOException;
+import java.util.Locale;
+
+public class Service_Activity extends AppCompatActivity implements OnMapReadyCallback,
+        GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveStartedListener,
+        GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener,
+        LocationListener {
     private static final int REQUEST_LOCATION = 1;
     androidx.appcompat.widget.Toolbar toolbar;
     private GoogleMap mMap;
     Fragment fragment;
     LinearLayout layout;
-    private FusedLocationProviderClient providerClient;
+
+    LocationManager locationManager;
+    private static final long MIN_TIME = 400;
+    private static final float MIN_DISTANCE = 1000;
+    Method_Service method_service;
+    Geocoder geocoder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +68,13 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     private void handle() {
         Map();
         get_Intent();
-        Location();
     }
-
+    @SuppressLint("MissingPermission")
     private void init() {
+        geocoder = new Geocoder(this, Locale.getDefault());
+        method_service = new Method_Service(this);
+        locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
+      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this); //You can also use LocationManager.GPS_PROVIDER and LocationManager.PASSIVE_PROVIDER
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         layout = findViewById(R.id.mylayout);
         toolbar = findViewById(R.id.toolbar);
@@ -62,6 +82,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         toolbar.setNavigationIcon(R.drawable.black_24dp);
         toolbar.setTitleTextColor(getResources().getColor(R.color.whilte));
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,30 +104,21 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         mMap.setOnCameraMoveListener(this);
         mMap.setOnCameraMoveCanceledListener(this);
         LatLng lng = new LatLng(21.093089, 105.681761);
-        mMap.addMarker(new MarkerOptions().position(lng).title("Khu sinh thái"));
-        //.icon(BitmapDescriptorFactory.fromResource(R.drawable.location)
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lng, 14));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 return;
             }
         }
-        // Đường đi
-        //mMap.addPolyline();
-//        mMap.setOnCameraMoveCanceledListener(new GoogleMap.OnCameraMoveCanceledListener() {
-//            @Override
-//            public void onCameraMoveCanceled() {
-//                Toast.makeText(Service_Activity.this, "Stop", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        mMap.setMyLocationEnabled(true);
+//           LatLng lng = new LatLng(21.039153,105.774574);
+//           mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lng,16));
+//        mMap.setMyLocationEnabled(true);
     }
 
     public void get_Intent() {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(Key_intent.Key_oder);
-        if (bundle!=null){
+        if (bundle != null) {
             Service_model model = (Service_model) bundle.getSerializable(Key_intent.Key_oder);
             toolbar.setTitle(model.getName());
         }
@@ -116,27 +128,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
 
     }
 
-    public void Create_Frag(String name) {
-        Fragment fragment = null;
-        switch (name) {
-            case "Giao hàng": {
-                fragment = new Frag_Oder();
-                break;
-            }
-            case "Lắp đặt vệ sinh": {
-
-            }
-            case "Giao hàng lắp đặt": {
-
-            }
-            case "Bảo hành sửa chữa": {
-            }
-            case "Thuê kho chia sẻ": {
-
-            }
-        }
-        getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, fragment).commit();
-    }
 
     @Override
     public void onCameraIdle() {
@@ -146,7 +137,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
 
     @Override
     public void onCameraMoveStarted(int i) {
-
+        Log.d("Move", "Start");
     }
 
     @Override
@@ -159,22 +150,37 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     public void onCameraMoveCanceled() {
         Log.d("Move", "Stop");
     }
-    @SuppressLint("MissingPermission")
-    private void Location() {
-        providerClient = LocationServices.getFusedLocationProviderClient(this);
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-        if (ActivityCompat.checkSelfPermission(Service_Activity.this, Manifest.permission.ACCESS_FINE_LOCATION) !=PackageManager.PERMISSION_GRANTED)
-        {
-            return;
-        }
-        providerClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    Log.d("Location", location.toString());
-                } else Log.d("Location", "NULL");
 
-            }
-        });
+    @SuppressLint("MissingPermission")
+
+    @Override
+    public void onLocationChanged(Location location) {
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+        mMap.animateCamera(cameraUpdate);
+        locationManager.removeUpdates(this);
+        try {
+            method_service.getAddress(geocoder, location.getLatitude(), location.getLongitude());
+          // EventBus.getDefault().post(method_service.address.toString());
+            // Toast.makeText(this, method_service.address.toString(), Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mMap.setMyLocationEnabled(true);
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
     }
 }

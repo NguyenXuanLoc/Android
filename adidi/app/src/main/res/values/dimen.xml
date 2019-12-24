@@ -16,7 +16,7 @@
     <dimen name="maginTop_Frag">30dp</dimen>
     <dimen name="magin_botom">20dp</dimen>
     <dimen name="height_Appbar">60dp</dimen>
-    <dimen name="height_Cardview">160dp</dimen>
+    <dimen name="height_Cardview">140dp</dimen>
     <dimen name="magin">20dp</dimen>
     <dimen name="radius">10dp</dimen>
     <dimen name="height_Cardview_service">130dp</dimen>
