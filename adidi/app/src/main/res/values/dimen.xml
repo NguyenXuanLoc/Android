@@ -36,4 +36,5 @@
     <dimen name="cardElevation">10dp</dimen>
     <dimen name="heightImg">70dp</dimen>
     <dimen name="piv_radius">3dp</dimen>
+    <dimen name="width_height_rowImg">100dp</dimen>
 </resources>

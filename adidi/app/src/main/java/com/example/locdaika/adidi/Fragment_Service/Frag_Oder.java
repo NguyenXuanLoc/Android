@@ -1,14 +1,18 @@
 package com.example.locdaika.adidi.Fragment_Service;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,12 +20,14 @@ import android.widget.Toast;
 
 import com.example.locdaika.adidi.Activity.Main_page;
 import com.example.locdaika.adidi.Activity.Service_Activity;
+import com.example.locdaika.adidi.Adapter.Adapter_ImgCamera;
 import com.example.locdaika.adidi.Adapter.Adapter_ProductGr;
 import com.example.locdaika.adidi.Data.Data_Product_gr;
 import com.example.locdaika.adidi.Dialog.Dialog_product;
 import com.example.locdaika.adidi.Method_Fragment.Method_Frag_Oder;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Address_model;
+import com.example.locdaika.adidi.model.Camera_model;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -37,6 +43,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Frag_Oder extends Fragment {
+    private static final int CAM_REQUEST = 1;
     View view;
     Method_Frag_Oder oder;
     LinearLayout layout_ProductGr;
@@ -47,6 +54,11 @@ public class Frag_Oder extends Fragment {
     Dialog_product dialog_product;
     Dialog dialog;
     TextView txt_Adress;
+    ImageView imgCamera;
+
+    Adapter_ImgCamera adapterImgCamera;
+    RecyclerView ryCamera;
+    ArrayList<Camera_model> arrCamera;
 
     @Nullable
     @Override
@@ -58,6 +70,14 @@ public class Frag_Oder extends Fragment {
     }
 
     private void init() {
+        arrCamera = new ArrayList<>();
+        ryCamera = view.findViewById(R.id.rycamera);
+        adapterImgCamera = new Adapter_ImgCamera(getActivity(), arrCamera);
+        LinearLayoutManager managerCamera = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
+        ryCamera.setLayoutManager(managerCamera);
+        ryCamera.setAdapter(adapterImgCamera);
+
+        imgCamera = view.findViewById(R.id.img_camera);
         txt_Adress = view.findViewById(R.id.txt_Add);
         dialog = new Dialog(getActivity(), R.style.Dialog);
         dialog.setTitle("Lựa chọn nhóm sản phẩm");
@@ -76,6 +96,7 @@ public class Frag_Oder extends Fragment {
 
     private void handleEvent() {
         eventProduct();
+        eventImgCamera();
     }
 
     private void eventProduct() {
@@ -102,5 +123,25 @@ public class Frag_Oder extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onResultReceived(String result) {
         txt_Adress.setText(result.toString());
+    }
+
+    public void eventImgCamera() {
+        imgCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, CAM_REQUEST);
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAM_REQUEST) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            arrCamera.add(new Camera_model(bitmap));
+            adapterImgCamera.notifyDataSetChanged();
+        }
     }
 }

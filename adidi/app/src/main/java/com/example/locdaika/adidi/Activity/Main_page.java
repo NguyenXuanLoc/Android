@@ -25,7 +25,7 @@ public class Main_page extends AppCompatActivity {
     public static ArrayList<Slider_model> arr_discover;
     public static ArrayList<Service_model> arr_Service;
     public static ArrayList<Product_model> arr_Product;
-
+//public static ArrayList<Camer_da>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

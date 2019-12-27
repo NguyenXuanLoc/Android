@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import com.example.locdaika.adidi.Adapter.Adapter_service;
 import com.example.locdaika.adidi.Data.Data_Service;
 import com.example.locdaika.adidi.Method.Method_Fragmain;
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.model.Pager_prom_Adapter;
+import com.example.locdaika.adidi.Adapter.Pager_prom_Adapter;
 import com.smarteist.autoimageslider.IndicatorView.PageIndicatorView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.AnimationType;
 
@@ -142,7 +141,7 @@ public class Frag_main extends Fragment {
     private void eventHandle() {
         methodSub = new Method_Fragmain(getActivity());
         data_service.add_service();
-        adapter_service.notifyDataSetChanged();
+       // adapter_service.notifyDataSetChanged();
         methodSub.eventScroll(scrollView, toolbar);
         methodSub.eventRefresh(swipeRefreshLayout);
         DostPorm();

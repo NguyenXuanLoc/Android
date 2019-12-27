@@ -65,6 +65,7 @@
                 android:background="@color/backdround" />
 
             <LinearLayout
+                android:id="@+id/layout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/layout"
@@ -89,11 +90,21 @@
                     android:src="@drawable/qr_code" />
 
                 <ImageView
+                    android:id="@+id/img_camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/magin"
                     android:layout_marginRight="@dimen/magin"
                     android:src="@drawable/ic_camera" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rycamera"/>
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -170,7 +181,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/location" />
+                    android:src="@drawable/locationn" />
 
                 <TextView
                     android:layout_width="wrap_content"

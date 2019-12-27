@@ -1,4 +1,4 @@
-package com.example.locdaika.adidi.model;
+package com.example.locdaika.adidi.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.locdaika.adidi.R;
+import com.example.locdaika.adidi.model.Slider_model;
 
 import java.util.ArrayList;
 
