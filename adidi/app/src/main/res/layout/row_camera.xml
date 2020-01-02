@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/width_height_rowImg"
-    android:layout_height="@dimen/width_height_rowImg"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/width_Cardview_camera"
+    android:layout_height="@dimen/height_Cardview_camera"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+<androidx.cardview.widget.CardView
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:id="@+id/img_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_down_black24dp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_color="@color/gray"
+            app:civ_border_width="0.7dp"
+            android:layout_margin="3dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/img_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_black_24dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/img_camera"
-        android:layout_width="@dimen/width_Cardview_service"
-        android:layout_height="@dimen/width_Cardview_service"
-        android:src="@drawable/ic_down_black24dp" />
-
-    <ImageView
-        android:layout_alignParentRight="true"
-        android:id="@+id/img_remove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/places_ic_clear" />
-</RelativeLayout>
+</LinearLayout>

@@ -23,8 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_adidi"
-                app:civ_border_color="@color/grey"
-                app:civ_border_width="2dp" />
+                app:civ_border_color="@color/gray"
+                app:civ_border_width="0.7dp" />
 
             <TextView
                 android:id="@+id/txt_name_acount"

@@ -1,8 +1,11 @@
 package com.example.locdaika.adidi.Method;
 
+import android.app.Activity;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.LocationManager;
+import android.util.Log;
 
 import com.example.locdaika.adidi.Fragment_Service.Frag_Oder;
 import com.example.locdaika.adidi.R;
@@ -24,6 +27,7 @@ public class Method_Service extends AppCompatActivity {
     public String state = "";
     public String zip = "";
     public String country = "";
+    static String Eror = "Eror";
 
     public Method_Service(Context context) {
         this.context = context;
@@ -59,5 +63,22 @@ public class Method_Service extends AppCompatActivity {
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, fragment).commit();
     }
+    public boolean isGPSEnabled(Activity activity) {
+        LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
 
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch (Exception e) {
+            Log.d(Eror, "gps provider error : " + e.getMessage());
+        }
+
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch (Exception e) {
+            Log.d(Eror, "network provider error : " + e.getMessage());
+        }
+        return !(!gps_enabled && !network_enabled);
+    }
 }

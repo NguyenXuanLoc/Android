@@ -34,9 +34,16 @@ public class Adapter_ImgCamera extends RecyclerView.Adapter<Adapter_ImgCamera.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, final int position) {
         Camera_model data_camera = arr.get(position);
         holder.imgCamera.setImageBitmap(data_camera.getImage());
+        holder.imgRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arr.remove(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

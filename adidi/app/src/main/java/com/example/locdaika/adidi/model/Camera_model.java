@@ -2,7 +2,9 @@ package com.example.locdaika.adidi.model;
 
 import android.graphics.Bitmap;
 
-public class Camera_model {
+import java.io.Serializable;
+
+public class Camera_model implements Serializable {
     Bitmap Image;
 
     public Camera_model() {

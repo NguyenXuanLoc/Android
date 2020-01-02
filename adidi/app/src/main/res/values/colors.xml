@@ -8,6 +8,7 @@
     <color name="whilte">#ffffff</color>
     <color name="black">#000000</color>
     <color name="grey">#eae7e7</color>
+    <color name="gray_search">#F1EEEE</color>
     <color name="backdround">#F2F2F2</color>
     <color name="red_toolbar">	#EF5529</color>
     <color name="orange_toobar">#EB7D30</color>

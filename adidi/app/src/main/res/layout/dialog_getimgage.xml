@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/height_LayoutDialogCam"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog_cam"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/textview_indam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/magin_top"
+        android:fontFamily="serif"
+        android:text="@string/InsertImg" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/maginTop_Dialogcam"
+        app:cardCornerRadius="@dimen/radius_Dialogcam">
+
+        <RelativeLayout
+            android:id="@+id/layout_Cam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_Dialogcam"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txt1"
+                style="@style/textview_thuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="serif"
+                android:text="@string/FromCam"
+                android:textSize="@dimen/chunho" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/txt1"
+                android:src="@drawable/next" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginBottom="@dimen/maginBottom_Dialogcam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/maginTop_Dialogcam"
+        app:cardCornerRadius="@dimen/radius_Dialogcam">
+
+        <RelativeLayout
+            android:id="@+id/layout_Lir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/pading_Dialogcam">
+
+            <TextView
+                android:id="@+id/txt2"
+                style="@style/textview_thuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="serif"
+                android:text="@string/FromLir"
+                android:textSize="@dimen/chunho" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/txt2"
+                android:src="@drawable/next" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

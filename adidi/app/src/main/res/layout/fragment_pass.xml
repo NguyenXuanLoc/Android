@@ -20,35 +20,42 @@
 
             <EditText
                 android:id="@+id/edt_number"
-                android:fontFamily="serif"
-                android:paddingLeft="@dimen/pading_top"
-                android:paddingBottom="@dimen/pading_left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/didong"
-                 />
-
-            <EditText
-                android:id="@+id/edt_pass"
-                android:fontFamily="serif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
+                android:fontFamily="serif"
+                android:hint="@string/didong"
+                android:paddingLeft="@dimen/pading_top"
+                android:paddingBottom="@dimen/pading_left" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray" />
+
+            <EditText
+                android:id="@+id/edt_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="serif"
                 android:hint="@string/pass"
                 android:padding="@dimen/pading_top" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/btn_Login"
-        android:text="@string/login"
-        android:fontFamily="serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/khoangcach"
         android:layout_marginRight="@dimen/khoangcach"
         android:background="@drawable/select_create"
+        android:fontFamily="serif"
+        android:text="@string/login"
         android:textColor="@color/whilte" />
+
     <TextView
         android:id="@+id/txt_forgot"
         android:layout_width="wrap_content"

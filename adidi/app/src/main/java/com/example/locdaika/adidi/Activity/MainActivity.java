@@ -7,10 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.model.Acount_model;
-import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
+import com.example.locdaika.adidi.CustomCamera.CustomCam_Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,12 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         handleEvent();
-        Intent intent = new Intent(this, Main_page.class);
+        Intent intent = new Intent(this, SearchAdd_Activity.class);
         startActivity(intent);
     }
-
     private void handleEvent() {
-        //   add();
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
     private void init() {
         preferences = getSharedPreferences("Acount", MODE_PRIVATE);
         btn_create = findViewById(R.id.btn_create);

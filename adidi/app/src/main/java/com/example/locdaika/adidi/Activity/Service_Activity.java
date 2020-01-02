@@ -84,8 +84,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         toolbar.setNavigationIcon(R.drawable.black_24dp);
         toolbar.setTitleTextColor(getResources().getColor(R.color.whilte));
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.me_service, menu);
@@ -111,8 +109,8 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
                 return;
             }
         }
-//           LatLng lng = new LatLng(21.039153,105.774574);
-//           mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lng,16));
+//        LatLng lng = new LatLng(21.039153, 105.774574);
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lng, 16));
 //        mMap.setMyLocationEnabled(true);
     }
 
@@ -153,7 +151,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     }
 
     @SuppressLint("MissingPermission")
-
     @Override
     public void onLocationChanged(Location location) {
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
@@ -162,7 +159,8 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         locationManager.removeUpdates(this);
         try {
             method_service.getAddress(geocoder, location.getLatitude(), location.getLongitude());
-            if (!method_service.address.isEmpty()){
+            Log.d("location", method_service.address + toString());
+            if (!method_service.address.isEmpty()) {
                 EventBus.getDefault().post(method_service.address.toString());
             }
         } catch (IOException e) {
