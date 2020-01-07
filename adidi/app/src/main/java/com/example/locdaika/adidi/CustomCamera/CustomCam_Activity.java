@@ -7,34 +7,21 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.example.locdaika.adidi.Fragment_Service.Frag_ImageCam;
+import com.example.locdaika.adidi.Fragment_Service.Frag_Service_ImageCam;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Camera_model;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.security.Policy;
-
-import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 
 public class CustomCam_Activity extends AppCompatActivity {
@@ -145,7 +132,7 @@ public class CustomCam_Activity extends AppCompatActivity {
                 Bitmap bm = BitmapFactory.decodeByteArray(data, 0, (data) != null ? data.length : 0);
                 Camera_model model = new Camera_model(bm);
                 bundle.putSerializable("data", model);
-                Frag_ImageCam fragInfo = new Frag_ImageCam();
+                Frag_Service_ImageCam fragInfo = new Frag_Service_ImageCam();
                 fragInfo.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, fragInfo).commit();
 
@@ -161,7 +148,7 @@ public class CustomCam_Activity extends AppCompatActivity {
 //                matrix.setRotate(90);
 //                bm = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, false);
 //                EventBus.getDefault().post(bm);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, new Frag_ImageCam()).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, new Frag_Service_ImageCam()).commit();
 //            }
 //            try {
 //                FileOutputStream fileOutputStream = new FileOutputStream(file);

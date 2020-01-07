@@ -21,7 +21,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class Frag_ImageCam extends Fragment {
+public class Frag_Service_ImageCam extends Fragment {
     ImageView imgCam;
     View view;
     Camera_model model;

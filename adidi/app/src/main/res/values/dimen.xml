@@ -45,4 +45,6 @@
     <dimen name="maginBottom_Dialogcam">30dp</dimen>
     <dimen name="radius_Dialogcam">20dp</dimen>
     <dimen name="pading_Dialogcam">5dp</dimen>
+    <dimen name="width_AutocompleView">600dp</dimen>
+    <dimen name="height_layout_Drop">6dp</dimen>
 </resources>

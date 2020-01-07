@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/shape_layout"
+                android:background="@drawable/shape_frag_service"
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/txt_productGr"
@@ -168,7 +168,7 @@
                 android:orientation="vertical" />
 
             <LinearLayout
-                android:id="@+id/layout2"
+                android:id="@+id/layoutplace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/layout1"
@@ -203,14 +203,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_below="@id/layout2"
+                android:layout_below="@id/layoutplace"
                 android:layout_marginTop="5dp"
                 android:background="@color/gray" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/layout2"
+                android:layout_below="@id/layoutplace"
                 android:layout_marginTop="@dimen/magin_top"
                 android:orientation="horizontal"
                 android:padding="5dp"

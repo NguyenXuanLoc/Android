@@ -72,4 +72,6 @@
     <string name="FromLir">Từ thư viện</string>
     <string name="Chooseonmap">Chọn trên bản đồ</string>
     <string name="Listdelivery">Danh sách điểm giao</string>
+    <string name="serviceGPS">Dịch vụ vị trí chưa sẵn sàng</string>
+    <string name="openGPS">Mở GPS để xem chức năng gợi ý vị trí hoạt động chính xác nhé</string>
 </resources>

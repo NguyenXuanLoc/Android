@@ -1,10 +1,8 @@
 package com.example.locdaika.adidi.Fragment_Service;
 
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,21 +10,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.locdaika.adidi.Adapter.Adapter_ImgCamera;
-import com.example.locdaika.adidi.Adapter.Adapter_ProductGr;
 import com.example.locdaika.adidi.Data.Data_Product_gr;
 import com.example.locdaika.adidi.Dialog.Dialog_product;
 import com.example.locdaika.adidi.Method_Fragment.Method_Frag_Oder;
 import com.example.locdaika.adidi.R;
+import com.example.locdaika.adidi.SearchPlace.SearchAdd_Activity;
 import com.example.locdaika.adidi.model.Camera_model;
 
 
@@ -43,7 +37,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Frag_Oder extends Fragment {
+public class Frag_Service_Oder extends Fragment {
     final int CAM_REQUEST = 1;
     final int GETIMG_REQUEST = 2;
     RelativeLayout layoutCam, layoutLir;
@@ -61,18 +55,19 @@ public class Frag_Oder extends Fragment {
     Adapter_ImgCamera adapterImgCamera;
     RecyclerView ryCamera;
     ArrayList<Camera_model> arrCamera;
+    LinearLayout layoutplace;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_oder, container, false);
+        view = inflater.inflate(R.layout.fragment_servive_oder, container, false);
         init();
         handleEvent();
         return view;
     }
 
     private void init() {
-
+        layoutplace = view.findViewById(R.id.layoutplace);
         dialogCam = new Dialog(getActivity());
         dialogCam.setContentView(R.layout.dialog_getimgage);
         layoutCam = dialogCam.findViewById(R.id.layout_Cam);
@@ -100,6 +95,12 @@ public class Frag_Oder extends Fragment {
             @Override
             public void onClick(View view) {
                 dialogCam.show();
+            }
+        });
+        layoutplace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SearchAdd_Activity.class));
             }
         });
         eventGetImg();
@@ -130,9 +131,14 @@ public class Frag_Oder extends Fragment {
         layoutCam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, CAM_REQUEST);
-                dialogCam.dismiss();
+                try {
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, CAM_REQUEST);
+                    dialogCam.dismiss();
+                } catch (Exception e) {
+                    Log.d("Error", e.toString());
+                }
+//                Toast.makeText(getActivity(), "OK", Toast.LENGTH_SHORT).show();
             }
         });
         layoutLir.setOnClickListener(new View.OnClickListener() {
@@ -155,20 +161,24 @@ public class Frag_Oder extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAM_REQUEST) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            arrCamera.add(new Camera_model(bitmap));
-            adapterImgCamera.notifyDataSetChanged();
+            if (data != null) {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                arrCamera.add(new Camera_model(bitmap));
+                adapterImgCamera.notifyDataSetChanged();
+            }
         }
         if (requestCode == GETIMG_REQUEST) {
-            Uri imageUri = data.getData();
-            Bitmap bitmap = null;
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (data != null) {
+                Uri imageUri = data.getData();
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                arrCamera.add(new Camera_model(bitmap));
+                adapterImgCamera.notifyDataSetChanged();
             }
-            arrCamera.add(new Camera_model(bitmap));
-            adapterImgCamera.notifyDataSetChanged();
         }
     }
 }

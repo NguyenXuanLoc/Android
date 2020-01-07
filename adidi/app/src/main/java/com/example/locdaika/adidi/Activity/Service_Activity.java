@@ -18,9 +18,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.example.locdaika.adidi.Fragment_Service.Frag_Oder;
+import com.example.locdaika.adidi.Fragment_Service.Frag_Service_Oder;
 import com.example.locdaika.adidi.Key.Key_intent;
 import com.example.locdaika.adidi.Method.Method_Service;
 import com.example.locdaika.adidi.R;
@@ -32,8 +31,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -84,6 +81,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         toolbar.setNavigationIcon(R.drawable.black_24dp);
         toolbar.setTitleTextColor(getResources().getColor(R.color.whilte));
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.me_service, menu);
@@ -122,11 +120,10 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
             toolbar.setTitle(model.getName());
         }
         //  Create_Frag(model.getName());
-        fragment = new Frag_Oder();
+        fragment = new Frag_Service_Oder();
         getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, fragment).commit();
 
     }
-
 
     @Override
     public void onCameraIdle() {

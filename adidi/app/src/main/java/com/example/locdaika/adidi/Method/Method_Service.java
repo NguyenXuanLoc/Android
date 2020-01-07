@@ -7,12 +7,9 @@ import android.location.Geocoder;
 import android.location.LocationManager;
 import android.util.Log;
 
-import com.example.locdaika.adidi.Fragment_Service.Frag_Oder;
+import com.example.locdaika.adidi.Fragment_Service.Frag_Service_Oder;
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.model.Address_model;
 
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.util.List;
@@ -46,7 +43,7 @@ public class Method_Service extends AppCompatActivity {
         Fragment fragment = null;
         switch (name) {
             case "Giao hàng": {
-                fragment = new Frag_Oder();
+                fragment = new Frag_Service_Oder();
                 break;
             }
             case "Lắp đặt vệ sinh": {
