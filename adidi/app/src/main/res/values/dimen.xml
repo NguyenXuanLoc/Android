@@ -47,4 +47,12 @@
     <dimen name="pading_Dialogcam">5dp</dimen>
     <dimen name="width_AutocompleView">600dp</dimen>
     <dimen name="height_layout_Drop">6dp</dimen>
+    <dimen name="cardelevation">10dp</dimen>
+    <dimen name="magintop50dp">50dp</dimen>
+    <dimen name="padingtop8dp">8dp</dimen>
+    <dimen name="padingbottom8dp">8dp</dimen>
+    <dimen name="width200dp">200dp</dimen>
+    <dimen name="height200dp">200dp</dimen>
+    <dimen name="width350dp">350dp</dimen>
+    <dimen name="radius15">20dp</dimen>
 </resources>

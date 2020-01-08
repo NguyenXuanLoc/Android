@@ -20,7 +20,7 @@ import com.example.locdaika.adidi.Data.Data_Product_gr;
 import com.example.locdaika.adidi.Dialog.Dialog_product;
 import com.example.locdaika.adidi.Method_Fragment.Method_Frag_Oder;
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.SearchPlace.SearchAdd_Activity;
+import com.example.locdaika.adidi.Activity.SearchAdd_Activity;
 import com.example.locdaika.adidi.model.Camera_model;
 
 

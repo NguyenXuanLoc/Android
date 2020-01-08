@@ -74,4 +74,7 @@
     <string name="Listdelivery">Danh sách điểm giao</string>
     <string name="serviceGPS">Dịch vụ vị trí chưa sẵn sàng</string>
     <string name="openGPS">Mở GPS để xem chức năng gợi ý vị trí hoạt động chính xác nhé</string>
+    <string name="feedbackNetwork">ADIDI không nhận hồi từ bạn !</string>
+    <string name="checknetwork">Hãy kiểm tra trạng thái kết nối mạng</string>
+    <string name="gotosetting">ĐẾN CÀI ĐẶT</string>
 </resources>

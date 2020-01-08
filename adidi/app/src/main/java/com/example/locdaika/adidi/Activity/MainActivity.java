@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.SearchPlace.SearchAdd_Activity;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,13 +43,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
     private void init() {
         mlayout = findViewById(R.id.mylayout);
         preferences = getSharedPreferences("Acount", MODE_PRIVATE);
         btn_create = findViewById(R.id.btn_create);
         btn_login = findViewById(R.id.btn_login);
     }
-
-
 }

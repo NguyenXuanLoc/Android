@@ -4,10 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +26,8 @@ import com.example.locdaika.adidi.Fragment.Frag_oder;
 import com.example.locdaika.adidi.Fragment_Service.Frag_Service_Oder;
 import com.example.locdaika.adidi.Fragment.Frag_main;
 import com.example.locdaika.adidi.Fragment.Frag_notification;
+import com.example.locdaika.adidi.Network.MyReceiver;
+import com.example.locdaika.adidi.Network.NetworkUtil;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Product_model;
 import com.example.locdaika.adidi.model.Service_model;
@@ -41,13 +47,15 @@ public class Main_page extends AppCompatActivity {
     Data_Prom data_prom;
     Data_Discover data_discover;
     Window window;
-
+    BroadcastReceiver MyReceiver = null; // Thành phần chạy ngầm kierm tra Internet
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         init();
         eventHandle();
+        String kq="P";
+        Log.d("Network",kq);
     }
 
     private void init() {
@@ -64,13 +72,15 @@ public class Main_page extends AppCompatActivity {
         btnNa.clearAnimation();
         getSupportActionBar().hide();
     }
-
     private void eventHandle() {
         getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Frag_main()).commit();
         eventBotom();
         data_prom.add_prom();
         data_discover.add_discover();
         checkGPS();
+        MyReceiver= new MyReceiver();
+        registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
     }
 
     private void eventBotom() {
@@ -134,5 +144,6 @@ public class Main_page extends AppCompatActivity {
         layout.setPadding(0, 0, 0, 0);
         layout.addView(snackview, 0);
         snackbar.show();
+
     }
 }

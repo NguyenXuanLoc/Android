@@ -36,7 +36,7 @@ public class test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        snackbar();
+       // snackbar();
     }
     private void snackbar() {
         mlayout = findViewById(R.id.layout);
