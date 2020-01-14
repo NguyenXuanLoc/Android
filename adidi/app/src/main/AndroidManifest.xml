@@ -11,10 +11,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature
         android:name="android.hardware.camera.front"
         android:required="true" />
@@ -27,6 +30,7 @@
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
+
     <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="@strings/mapAPI" />
@@ -38,6 +42,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.SetupDelivery_Activity"></activity>
         <activity
             android:name=".GoogleMap.PickaPlace_Activity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -81,7 +86,9 @@
             android:name="com.google.android.places.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Activity.test" android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.test"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.SearchAdd_Activity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -42,6 +42,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveStartedListener,
         GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener,
         LocationListener {
+
     private static final int REQUEST_LOCATION = 1;
     androidx.appcompat.widget.Toolbar toolbar;
     private GoogleMap mMap;
@@ -119,7 +120,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
             Service_model model = (Service_model) bundle.getSerializable(Key_intent.Key_oder);
             toolbar.setTitle(model.getName());
         }
-        //  Create_Frag(model.getName());
         fragment = new Frag_Service_Oder();
         getSupportFragmentManager().beginTransaction().replace(R.id.mylayout, fragment).commit();
 

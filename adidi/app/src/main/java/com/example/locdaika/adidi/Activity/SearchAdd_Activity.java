@@ -8,11 +8,13 @@ import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.locdaika.adidi.GoogleMap.PickaPlace_Activity;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.SearchPlace.PlaceAutoSuggestAdapter;
 
@@ -23,6 +25,7 @@ public class SearchAdd_Activity extends AppCompatActivity {
     AutoCompleteTextView autoSearch;
     final int Request_Speech = 1;
     ImageView imgMic;
+    RelativeLayout ryPick;
 
     @SuppressLint("ResourceType")
     @Override
@@ -34,6 +37,12 @@ public class SearchAdd_Activity extends AppCompatActivity {
     }
 
     private void eventHandle() {
+        ryPick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchAdd_Activity.this,PickaPlace_Activity.class));
+            }
+        });
         autoSearch.setAdapter(new PlaceAutoSuggestAdapter(SearchAdd_Activity.this, android.R.layout.simple_list_item_1));
         imgMic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +53,7 @@ public class SearchAdd_Activity extends AppCompatActivity {
     }
 
     private void init() {
+        ryPick = findViewById(R.id.layout_pick);
         imgMic = findViewById(R.id.imgMic);
         autoSearch = findViewById(R.id.edtSearch);
     }

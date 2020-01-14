@@ -55,4 +55,11 @@
     <dimen name="height200dp">200dp</dimen>
     <dimen name="width350dp">350dp</dimen>
     <dimen name="radius15">20dp</dimen>
+    <dimen name="maginletf15">15dp</dimen>
+    <dimen name="magin10dp">10dp</dimen>
+    <dimen name="magin5dp">5dp</dimen>
+    <dimen name="card2dp">2dp</dimen>
+    <dimen name="radius20dp">20dp</dimen>
+    <dimen name="pading5dp">5dp</dimen>
+    <dimen name="magin15dp">15dp</dimen>
 </resources>

@@ -30,23 +30,15 @@ public class MyReceiver extends BroadcastReceiver {
             @Override
             public void onClick(View v) {
                 context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
-//                    Toast.makeText(context, "OK", Toast.LENGTH_SHORT).show();
             }
         });
-//        if (status.isEmpty()){
-//            Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
-//        }
-//        else
-//        Toast.makeText(context, status.toString(), Toast.LENGTH_SHORT).show();
-
         if (status.isEmpty()) {
             status = "0";
         }
         if (status.equals("0")) {
             Toast.makeText(context, "Turn off", Toast.LENGTH_SHORT).show();
             dialog.show();
-        }
-        else{
+        } else if (status.equals("1")){
             Toast.makeText(context, "Turn on", Toast.LENGTH_SHORT).show();
             dialog.dismiss();
         }

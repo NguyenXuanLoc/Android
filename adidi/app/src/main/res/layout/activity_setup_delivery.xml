@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/whilte">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/imgback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/back_black" />
+
+            <TextView
+                android:id="@+id/txtAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/magin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:dropDownAnchor="@id/layout"
+                android:dropDownWidth="match_parent"
+                android:dropDownHeight="wrap_content"
+                android:fontFamily="serif"
+                android:hint="@string/insert_Add"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/orange"
+            android:orientation="vertical" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/orange"
+        android:orientation="vertical" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout1" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_margin="@dimen/magin5dp"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="@dimen/cardElevation"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/magin5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginBottom="@dimen/magin15dp"
+                android:layout_marginTop="@dimen/magin10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/infor_delivery"
+                style="@style/textview_indam"
+                android:fontFamily="serif"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/magin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:hint="@string/recipient_name"
+                    android:padding="@dimen/pading5dp"
+                    android:textSize="@dimen/chunho" />
+
+                <TextView
+                    android:layout_marginRight="@dimen/magin5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/phonebook"
+                    android:textColor="@color/orange"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray" />
+
+            <EditText
+                android:layout_marginTop="@dimen/magin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="serif"
+                android:hint="@string/number"
+                android:padding="@dimen/pading5dp"
+                android:textSize="@dimen/chunho" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray" />
+
+            <EditText
+                android:layout_marginTop="@dimen/magin10dp"
+                android:layout_marginBottom="@dimen/magin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="serif"
+                android:hint="@string/note"
+                android:padding="@dimen/pading5dp"
+                android:textSize="@dimen/chunho" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_pick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/maginletf15"
+        android:background="@drawable/selector_buton"
+        android:fontFamily="serif"
+        android:text="@string/setupDelivery"
+        android:textColor="@color/whilte"
+        android:textSize="@dimen/chunho" />
+</RelativeLayout>

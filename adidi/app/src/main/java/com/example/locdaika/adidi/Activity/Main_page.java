@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.locdaika.adidi.Data.Data_Discover;
 import com.example.locdaika.adidi.Data.Data_Prom;
+import com.example.locdaika.adidi.Fragment.Frag_Function;
 import com.example.locdaika.adidi.Fragment.Frag_oder;
 import com.example.locdaika.adidi.Fragment_Service.Frag_Service_Oder;
 import com.example.locdaika.adidi.Fragment.Frag_main;
@@ -46,7 +47,6 @@ public class Main_page extends AppCompatActivity {
     public static ArrayList<Product_model> arr_Product;
     Data_Prom data_prom;
     Data_Discover data_discover;
-    Window window;
     BroadcastReceiver MyReceiver = null; // Thành phần chạy ngầm kierm tra Internet
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,9 @@ public class Main_page extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
         init();
         eventHandle();
-        String kq="P";
-        Log.d("Network",kq);
     }
 
     private void init() {
-        window = getWindow();
         mlayout = findViewById(R.id.layout);
         data_discover = new Data_Discover(this);
         data_prom = new Data_Prom(this);
@@ -70,7 +67,6 @@ public class Main_page extends AppCompatActivity {
         arr_prom = new ArrayList<>();
         btnNa = findViewById(R.id.btnNa);
         btnNa.clearAnimation();
-        getSupportActionBar().hide();
     }
     private void eventHandle() {
         getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Frag_main()).commit();
@@ -80,9 +76,7 @@ public class Main_page extends AppCompatActivity {
         checkGPS();
         MyReceiver= new MyReceiver();
         registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-
     }
-
     private void eventBotom() {
         btnNa.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -90,12 +84,10 @@ public class Main_page extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.me_main: {
-                        Toast.makeText(Main_page.this, "A", Toast.LENGTH_SHORT).show();
                         fragment = new Frag_main();
                         break;
                     }
                     case R.id.me_oder: {
-                        Toast.makeText(Main_page.this, "B", Toast.LENGTH_SHORT).show();
                         fragment = new Frag_oder();
                         break;
                     }
@@ -104,7 +96,7 @@ public class Main_page extends AppCompatActivity {
                         break;
                     }
                     case R.id.me_funtion: {
-                        fragment = new Frag_notification();
+                        fragment = new Frag_Function();
                         break;
                     }
                 }
@@ -113,7 +105,6 @@ public class Main_page extends AppCompatActivity {
             }
         });
     }
-
     private void checkGPS() {
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean enabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -121,13 +112,7 @@ public class Main_page extends AppCompatActivity {
             snackbar();
         }
     }
-
     private void snackbar() {
-//        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            window.setStatusBarColor(ContextCompat.getColor(Main_page.this, R.color.blue));
-//        }
         final Snackbar snackbar = Snackbar.make(layoutSnack, "", Snackbar.LENGTH_LONG);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
         View snackview = getLayoutInflater().inflate(R.layout.snack_gps, null);

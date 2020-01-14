@@ -61,8 +61,8 @@ public class Frag_main extends Fragment {
     }
 
     private void init() {
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        AppCompatActivity activity = (AppCompatActivity) getActivity();
+//        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         data_service = new Data_Service();
         swipeRefreshLayout = view.findViewById(R.id.Refreshlayout);
         Dots_Discover = view.findViewById(R.id.dots_discover);
@@ -81,7 +81,6 @@ public class Frag_main extends Fragment {
 
         toolbar = view.findViewById(R.id.toolbar);
         scrollView = view.findViewById(R.id.scrollView);
-
         adapter_service = new Adapter_service(getActivity(), Main_page.arr_Service);
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 3, RecyclerView.VERTICAL, false);
         re_Service = view.findViewById(R.id.re_service);

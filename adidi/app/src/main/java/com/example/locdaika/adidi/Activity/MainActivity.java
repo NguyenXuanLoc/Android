@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.locdaika.adidi.GoogleMap.PickaPlace_Activity;
 import com.example.locdaika.adidi.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     Button btn_create, btn_login;
     public static SharedPreferences preferences;
     LinearLayout mlayout;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         handleEvent();
-        Intent intent = new Intent(this, Main_page.class);
+        Intent intent = new Intent(this, SetupDelivery_Activity.class);
         startActivity(intent);
     }
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private void init() {
         mlayout = findViewById(R.id.mylayout);
         preferences = getSharedPreferences("Acount", MODE_PRIVATE);

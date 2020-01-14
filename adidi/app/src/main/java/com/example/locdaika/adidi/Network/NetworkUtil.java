@@ -11,16 +11,13 @@ public class NetworkUtil {
         if (activeNetwork != null) {
             if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
                 status = "1";
-              //  status = "Wifi enabled";
                 return status;
             } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
                 status = "1";
-            //    status = "Mobile data enabled";
                 return status;
             }
         } else {
             status = "0";
-        //    status = "No internet is available";
             return status;
         }
         return status;

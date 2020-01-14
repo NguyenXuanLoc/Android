@@ -43,6 +43,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/magin_top"
             android:fontFamily="serif"
-            android:text="@string/notNofication" />
+            android:text="@string/notOder" />
     </RelativeLayout>
 </RelativeLayout>
