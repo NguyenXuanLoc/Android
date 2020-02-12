@@ -43,7 +43,6 @@
                 android:text="@string/uudai"
                 android:textColor="@color/black"
                 android:textSize="@dimen/chuthuong" />
-
             <TextView
                 android:fontFamily="serif"
                 android:layout_centerHorizontal="true"
