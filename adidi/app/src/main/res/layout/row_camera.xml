@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/width_Cardview_camera"
-    android:layout_height="@dimen/height_Cardview_camera"
+    android:layout_width="@dimen/width120dp"
+    android:layout_height="@dimen/height120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 <androidx.cardview.widget.CardView
@@ -15,16 +15,16 @@
         android:layout_height="match_parent">
         <ImageView
             android:scaleType="centerCrop"
-            android:id="@+id/img_camera"
+            android:id="@+id/imgCamera"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_down_black24dp" />
         <de.hdodenhof.circleimageview.CircleImageView
             app:civ_border_color="@color/gray"
             app:civ_border_width="0.7dp"
-            android:layout_margin="3dp"
+            android:layout_margin="@dimen/margin3dp"
             android:layout_alignParentRight="true"
-            android:id="@+id/img_remove"
+            android:id="@+id/imgRemoveImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_close_black_24dp" />

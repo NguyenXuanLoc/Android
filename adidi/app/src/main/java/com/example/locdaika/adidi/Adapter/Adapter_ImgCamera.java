@@ -56,8 +56,8 @@ public class Adapter_ImgCamera extends RecyclerView.Adapter<Adapter_ImgCamera.Vi
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            imgCamera = itemView.findViewById(R.id.img_camera);
-            imgRemove = itemView.findViewById(R.id.img_remove);
+            imgCamera = itemView.findViewById(R.id.imgCamera);
+            imgRemove = itemView.findViewById(R.id.imgRemoveImage);
         }
     }
 }

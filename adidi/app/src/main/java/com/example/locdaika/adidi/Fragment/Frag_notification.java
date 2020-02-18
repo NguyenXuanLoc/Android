@@ -32,7 +32,7 @@ public class Frag_notification extends Fragment {
     private void init() {
         toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.oder);
+        toolbar.setTitle(R.string.Oder);
     }
 
     private void eventHandle() {

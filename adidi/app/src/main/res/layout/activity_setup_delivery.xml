@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whilte">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/imgback"
+                android:id="@+id/imgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -26,16 +26,16 @@
 
             <TextView
                 android:id="@+id/txtAdd"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/magin"
+                android:layout_marginLeft="@dimen/margin20dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:dropDownAnchor="@id/layout"
                 android:dropDownWidth="match_parent"
                 android:dropDownHeight="wrap_content"
-                android:fontFamily="serif"
-                android:hint="@string/insert_Add"
+                android:hint="@string/insertAddress"
                 android:imeOptions="actionSearch"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -64,34 +64,34 @@
         android:layout_below="@id/layout1" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout1"
-        android:layout_margin="@dimen/magin5dp"
+        android:layout_margin="@dimen/margin5dp"
         app:cardCornerRadius="@dimen/radius"
-        app:cardElevation="@dimen/cardElevation"
+        app:cardElevation="@dimen/card10dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/magin5dp"
+            android:layout_margin="@dimen/margin5dp"
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginBottom="@dimen/magin15dp"
-                android:layout_marginTop="@dimen/magin10dp"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/infor_delivery"
-                style="@style/textview_indam"
-                android:fontFamily="serif"/>
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin15dp"
+                android:text="@string/infoDelivery" />
 
             <LinearLayout
-                android:layout_marginTop="@dimen/magin10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:orientation="horizontal"
                 android:weightSum="1">
 
@@ -101,16 +101,16 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:fontFamily="serif"
-                    android:hint="@string/recipient_name"
-                    android:padding="@dimen/pading5dp"
+                    android:hint="@string/recipientName"
+                    android:padding="@dimen/padding5dp"
                     android:textSize="@dimen/chunho" />
 
                 <TextView
-                    android:layout_marginRight="@dimen/magin5dp"
+                    style="@style/smallText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="@string/phonebook"
+                    android:layout_marginRight="@dimen/margin5dp"
+                    android:text="@string/phoneBook"
                     android:textColor="@color/orange"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -121,13 +121,99 @@
                 android:background="@color/gray" />
 
             <EditText
-                android:layout_marginTop="@dimen/magin10dp"
+                style="@style/smallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:background="@null"
+                android:hint="@string/PhoneNumber"
+                android:inputType="phone"
+                android:padding="@dimen/padding5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray" />
+
+            <EditText
+                style="@style/smallText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/note"
+                android:padding="@dimen/padding5dp"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card1"
+        android:layout_margin="@dimen/margin5dp"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="@dimen/card10dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin5dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textview_indam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/margin10dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin15dp"
+                android:text="@string/chooseService" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:hint="@string/recipientName"
+                    android:padding="@dimen/padding5dp"
+                    android:textSize="@dimen/chunho" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin5dp"
+                    android:fontFamily="serif"
+                    android:text="@string/phoneBook"
+                    android:textColor="@color/orange"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
                 android:background="@null"
                 android:fontFamily="serif"
-                android:hint="@string/number"
-                android:padding="@dimen/pading5dp"
+                android:hint="@string/PhoneNumber"
+                android:padding="@dimen/padding5dp"
                 android:textSize="@dimen/chunho" />
 
             <LinearLayout
@@ -136,15 +222,15 @@
                 android:background="@color/gray" />
 
             <EditText
-                android:layout_marginTop="@dimen/magin10dp"
-                android:layout_marginBottom="@dimen/magin10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin10dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="serif"
                 android:hint="@string/note"
-                android:padding="@dimen/pading5dp"
+                android:padding="@dimen/padding5dp"
                 android:textSize="@dimen/chunho" />
         </LinearLayout>
 
@@ -155,10 +241,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/maginletf15"
-        android:background="@drawable/selector_buton"
+        android:layout_margin="@dimen/margin15dp"
+        android:background="@drawable/select_button"
         android:fontFamily="serif"
         android:text="@string/setupDelivery"
-        android:textColor="@color/whilte"
+        android:textColor="@color/white"
         android:textSize="@dimen/chunho" />
 </RelativeLayout>

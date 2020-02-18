@@ -38,9 +38,9 @@ public class Pager_prom_Adapter extends PagerAdapter {
         ImageView img_Promtion;
         TextView txt_Name, txt_Infor, txt_Seermore;
         img_Promtion = view.findViewById(R.id.img_promotion);
-        txt_Name = view.findViewById(R.id.txt_name_promtion);
-        txt_Infor = view.findViewById(R.id.txt_Info_promtion);
-        txt_Seermore = view.findViewById(R.id.txt_seemore_promtion);
+        txt_Name = view.findViewById(R.id.txtTitlePromotion);
+        txt_Infor = view.findViewById(R.id.txtInfoPromotion);
+        txt_Seermore = view.findViewById(R.id.txtSeeMore);
         Slider_model model = arr.get(position);
         img_Promtion.setImageResource(model.getImage());
         txt_Infor.setText(model.getContent());

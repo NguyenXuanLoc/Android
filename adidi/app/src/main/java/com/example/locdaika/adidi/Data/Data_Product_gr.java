@@ -2,10 +2,8 @@ package com.example.locdaika.adidi.Data;
 
 import android.content.Context;
 
-import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Activity.MainPage_Activity;
 import com.example.locdaika.adidi.model.Product_model;
-
-import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,21 +13,20 @@ public class Data_Product_gr extends AppCompatActivity {
     public Data_Product_gr(Context context) {
         this.context = context;
     }
-
     public void add(){
-        Main_page.arr_Product.add(new Product_model("Phổ thông"));
-        Main_page.arr_Product.add(new Product_model("Điện máy"));
-        Main_page.arr_Product.add(new Product_model("Tivi"));
-        Main_page.arr_Product.add(new Product_model("Tủ lạnh"));
-        Main_page.arr_Product.add(new Product_model("Máy giặt"));
-        Main_page.arr_Product.add(new Product_model("Máy sấy"));
-        Main_page.arr_Product.add(new Product_model("Điều hòa"));
-        Main_page.arr_Product.add(new Product_model("Tủ đông"));
-        Main_page.arr_Product.add(new Product_model("Máy nước nóng"));
-        Main_page.arr_Product.add(new Product_model("Máy lọc nước"));
-        Main_page.arr_Product.add(new Product_model("Máy hút bụi"));
-        Main_page.arr_Product.add(new Product_model("Máy hút mùi"));
-        Main_page.arr_Product.add(new Product_model("Ghế massage"));
-        Main_page.arr_Product.add(new Product_model("Máy chạy bộ"));
+        MainPage_Activity.arrProduct.add(new Product_model("Phổ thông"));
+        MainPage_Activity.arrProduct.add(new Product_model("Điện máy"));
+        MainPage_Activity.arrProduct.add(new Product_model("Tivi"));
+        MainPage_Activity.arrProduct.add(new Product_model("Tủ lạnh"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy giặt"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy sấy"));
+        MainPage_Activity.arrProduct.add(new Product_model("Điều hòa"));
+        MainPage_Activity.arrProduct.add(new Product_model("Tủ đông"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy nước nóng"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy lọc nước"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy hút bụi"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy hút mùi"));
+        MainPage_Activity.arrProduct.add(new Product_model("Ghế massage"));
+        MainPage_Activity.arrProduct.add(new Product_model("Máy chạy bộ"));
     }
 }

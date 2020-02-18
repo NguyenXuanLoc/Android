@@ -49,9 +49,9 @@ public class Adapter_Slider extends SliderViewAdapter<Adapter_Slider.Viewhoder> 
         public Viewhoder(View itemView) {
             super(itemView);
             img_Promtion = itemView.findViewById(R.id.img_promotion);
-            txt_Name = itemView.findViewById(R.id.txt_name_promtion);
-            txt_Infor = itemView.findViewById(R.id.txt_Info_promtion);
-            txt_Seermore = itemView.findViewById(R.id.txt_seemore_promtion);
+            txt_Name = itemView.findViewById(R.id.txtTitlePromotion);
+            txt_Infor = itemView.findViewById(R.id.txtInfoPromotion);
+            txt_Seermore = itemView.findViewById(R.id.txtSeeMore);
         }
     }
 }

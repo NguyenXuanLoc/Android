@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/whilte">
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,16 +30,16 @@
 
                 <TextView
                     android:id="@+id/txtAdd"
+                    style="@style/smallText"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/magin"
+                    android:layout_marginLeft="@dimen/margin20dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:dropDownAnchor="@id/layout"
                     android:dropDownWidth="match_parent"
                     android:dropDownHeight="wrap_content"
-                    android:fontFamily="serif"
-                    android:hint="@string/insert_Add"
+                    android:hint="@string/insertAddress"
                     android:imeOptions="actionSearch"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -65,15 +66,14 @@
             android:layout_height="match_parent"
             tools:context=".Activity.testt" />
     </LinearLayout>
+
     <Button
-        android:id="@+id/btn_pick"
+        android:id="@+id/btnPickPlace"
+        style="@style/buttonOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/maginletf15"
-        android:background="@drawable/selector_buton"
-        android:text="@string/pickplace"
-        android:fontFamily="serif"
-        android:textColor="@color/whilte"
-        android:textSize="@dimen/chunho"/>
+        android:layout_margin="@dimen/margin15dp"
+        android:background="@drawable/select_button"
+        android:text="@string/pickPlace" />
 </RelativeLayout>

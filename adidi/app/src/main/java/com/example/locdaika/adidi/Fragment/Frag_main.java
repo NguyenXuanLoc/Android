@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Activity.MainPage_Activity;
 import com.example.locdaika.adidi.Adapter.Adapter_service;
 import com.example.locdaika.adidi.Data.Data_Service;
 import com.example.locdaika.adidi.Method.Method_Fragmain;
@@ -22,7 +22,6 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.AnimationType;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -34,7 +33,6 @@ import androidx.viewpager.widget.ViewPager;
 public class Frag_main extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     Toolbar toolbar;
-    String TAG = "SCROLL";
     View view;
 
     RecyclerView re_Service;
@@ -50,6 +48,7 @@ public class Frag_main extends Fragment {
     PageIndicatorView Dots_Discover;
     Data_Service data_service;
     Method_Fragmain methodSub;
+    Window window;
 
     @Nullable
     @Override
@@ -61,36 +60,34 @@ public class Frag_main extends Fragment {
     }
 
     private void init() {
-//        AppCompatActivity activity = (AppCompatActivity) getActivity();
-//        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         data_service = new Data_Service();
-        swipeRefreshLayout = view.findViewById(R.id.Refreshlayout);
+        swipeRefreshLayout = view.findViewById(R.id.refreshLayout);
         Dots_Discover = view.findViewById(R.id.dots_discover);
-        Pager_Discover = view.findViewById(R.id.pager_discover);
-        Adapter_Discover = new Pager_prom_Adapter(Main_page.arr_discover, getActivity());
+        Pager_Discover = view.findViewById(R.id.pagerDiscover);
+        Adapter_Discover = new Pager_prom_Adapter(MainPage_Activity.arrDiscover, getActivity());
         Pager_Discover.setAdapter(Adapter_Discover);
 
         Dots_Discover.setViewPager(Pager_Discover);
         Pager_Discover.setPadding(30, 0, 130, 0);
-        Dots_prom = view.findViewById(R.id.dots_prom);
-        Pager_Prom = view.findViewById(R.id.pager_Prom);
-        Adapter_Prom = new Pager_prom_Adapter(Main_page.arr_prom, getActivity());
+        Dots_prom = view.findViewById(R.id.dotsProm);
+        Pager_Prom = view.findViewById(R.id.pagerProm);
+        Adapter_Prom = new Pager_prom_Adapter(MainPage_Activity.arr_prom, getActivity());
         Pager_Prom.setAdapter(Adapter_Prom);
         Dots_prom.setViewPager(Pager_Prom);
         Pager_Prom.setPadding(30, 0, 130, 0);
 
         toolbar = view.findViewById(R.id.toolbar);
         scrollView = view.findViewById(R.id.scrollView);
-        adapter_service = new Adapter_service(getActivity(), Main_page.arr_Service);
+        adapter_service = new Adapter_service(getActivity(), MainPage_Activity.arr_Service);
         GridLayoutManager manager = new GridLayoutManager(getActivity(), 3, RecyclerView.VERTICAL, false);
-        re_Service = view.findViewById(R.id.re_service);
+        re_Service = view.findViewById(R.id.ryService);
         re_Service.setAdapter(adapter_service);
         re_Service.setLayoutManager(manager);
 
     }
 
     private void DostPorm() {
-        Dots_prom = view.findViewById(R.id.dots_prom);
+        Dots_prom = view.findViewById(R.id.dotsProm);
         Dots_prom.setCount(5); // specify total count of indicators
         Dots_prom.setSelection(2);
         Dots_prom.setViewPager(Pager_Prom);
@@ -140,22 +137,18 @@ public class Frag_main extends Fragment {
     private void eventHandle() {
         methodSub = new Method_Fragmain(getActivity());
         data_service.add_service();
-       // adapter_service.notifyDataSetChanged();
-        methodSub.eventScroll(scrollView, toolbar);
+        methodSub.eventScroll(scrollView, toolbar, window);
         methodSub.eventRefresh(swipeRefreshLayout);
         DostPorm();
         DostDiscover();
+        changeColorStatus();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void setStatusBarGradiant(Activity activity, int drawable) {
+    private void changeColorStatus() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = activity.getWindow();
-            Drawable background = activity.getResources().getDrawable(drawable);
+            window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
-            window.setNavigationBarColor(activity.getResources().getColor(android.R.color.transparent));
-            window.setBackgroundDrawable(background);
+            window.setBackgroundDrawable(getResources().getDrawable(R.drawable.color_toolbar));
         }
     }
 }

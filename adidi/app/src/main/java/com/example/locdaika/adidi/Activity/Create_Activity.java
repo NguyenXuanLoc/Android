@@ -2,7 +2,6 @@ package com.example.locdaika.adidi.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -15,46 +14,50 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.locdaika.adidi.Data.Data_Acount;
+import com.example.locdaika.adidi.Data.DataAccount;
+import com.example.locdaika.adidi.Method.Method_CreateAccount_Activity;
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.model.Acount_model;
 
 public class Create_Activity extends AppCompatActivity {
-    TextView txt_rules;
-    EditText edt_Firstname, edt_Lastname, edt_Number, edt_Email, edt_Pass, edt_Code;
-    Button btn_Create;
+    TextView txtRules;
+    EditText edtFirstname, edtLastname, edtPhoneNumber, edtEmail, edtPass, edtCode;
+    Button btnCreate;
     boolean checked = true;
-    String FirtName, LastName, Number, Email, Pass, Code;
+    String FirstName, LastName, Number, Email, Pass, Code;
     ImageView img_back;
-    Data_Acount acount = new Data_Acount();
+    DataAccount Account;
+    Method_CreateAccount_Activity method;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_acount);
         init();
-        handeEvent();
+        eventHandle();
     }
 
     private void init() {
+        Account = new DataAccount();
+        method = new Method_CreateAccount_Activity(this, Account);
         img_back = findViewById(R.id.img_back);
-        btn_Create = findViewById(R.id.btn_create);
-        edt_Code = findViewById(R.id.edt_code);
-        edt_Email = findViewById(R.id.edt_email);
-        edt_Firstname = findViewById(R.id.edt_firstname);
-        edt_Lastname = findViewById(R.id.edt_lastname);
-        edt_Number = findViewById(R.id.edt_number);
-        edt_Pass = findViewById(R.id.edt_pass);
-        txt_rules = findViewById(R.id.rules);
+        btnCreate = findViewById(R.id.btn_create);
+        edtCode = findViewById(R.id.edt_code);
+        edtEmail = findViewById(R.id.edt_email);
+        edtFirstname = findViewById(R.id.edt_firstname);
+        edtLastname = findViewById(R.id.edt_lastname);
+        edtPhoneNumber = findViewById(R.id.edt_number);
+        edtPass = findViewById(R.id.edt_pass);
+        txtRules = findViewById(R.id.txtRules);
     }
 
-    private void handeEvent() {
-        EventRules();
-        EventButon();
-        EventImg();
+    private void eventHandle() {
+        method.eventRules(txtRules);
+        method.EventCreateAccount(btnCreate, edtFirstname, edtLastname, edtPhoneNumber, edtEmail, edtPass, edtCode);
+//        eventCreateAcount();
+        eventBack();
     }
 
-    private void EventImg() {
+    private void eventBack() {
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,86 +66,54 @@ public class Create_Activity extends AppCompatActivity {
         });
     }
 
-    private void EventButon() {
-        btn_Create.setOnClickListener(new View.OnClickListener() {
+    private void eventCreateAcount() {
+        btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventEditext();
+                checkError();
                 if (checked == true) {
-                    acount.RemoveAcount(MainActivity.preferences, FirtName, LastName, Number, Email, Pass, Code);
-                    FirtName = edt_Firstname.getText().toString();
-                    LastName = edt_Lastname.getText().toString();
-                    Number = edt_Number.getText().toString();
-                    Email = edt_Email.getText().toString();
-                    Pass = edt_Pass.getText().toString();
-                    Code = edt_Code.getText().toString();
-                        acount.RemoveAcount(MainActivity.preferences, Data_Acount.FirtName, Data_Acount.LastName, Data_Acount.Number, Data_Acount.Email, Data_Acount.Pass, Data_Acount.Code);
-                        acount.CreateAcount(MainActivity.preferences, FirtName, LastName, Number, Email, Pass, Code);
-                        Toast.makeText(Create_Activity.this, getResources().getText(R.string.createAcountSuccess), Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    else
+                    Account.RemoveAcount(MainActivity.preferences, FirstName, LastName, Number, Email, Pass, Code);
+                    FirstName = edtFirstname.getText().toString();
+                    LastName = edtLastname.getText().toString();
+                    Number = edtPhoneNumber.getText().toString();
+                    Email = edtEmail.getText().toString();
+                    Pass = edtPass.getText().toString();
+                    Code = edtCode.getText().toString();
+                    Account.RemoveAcount(MainActivity.preferences, DataAccount.FirstName, DataAccount.LastName, DataAccount.Number, DataAccount.Email, DataAccount.Pass, DataAccount.Code);
+                    Account.CreateAcount(MainActivity.preferences, FirstName, LastName, Number, Email, Pass, Code);
+                    Toast.makeText(Create_Activity.this, getResources().getText(R.string.createAccountSuccess), Toast.LENGTH_SHORT).show();
+                    finish();
+                } else
                     Toast.makeText(Create_Activity.this, getResources().getText(R.string.checkNull), Toast.LENGTH_SHORT).show();
                 checked = true;
             }
         });
     }
 
-    private void EventEditext() {
-        if (edt_Firstname.length() == 0) {
-            edt_Firstname.setError(getResources().getString(R.string.check));
+    private void checkError() {
+        if (edtFirstname.length() == 0) {
+            edtFirstname.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-        if (edt_Lastname.length() == 0) {
-            edt_Lastname.setError(getResources().getString(R.string.check));
+        if (edtLastname.length() == 0) {
+            edtLastname.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-        if (edt_Pass.length() == 0) {
-            edt_Pass.setError(getResources().getString(R.string.check));
+        if (edtPass.length() == 0) {
+            edtPass.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-        if (edt_Number.length() == 0) {
-            edt_Number.setError(getResources().getString(R.string.check));
+        if (edtPhoneNumber.length() == 0) {
+            edtPhoneNumber.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-        if (edt_Email.length() == 0) {
-            edt_Email.setError(getResources().getString(R.string.check));
+        if (edtEmail.length() == 0) {
+            edtEmail.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-        if (edt_Code.length() == 0) {
-            edt_Code.setError(getResources().getString(R.string.check));
+        if (edtCode.length() == 0) {
+            edtCode.setError(getResources().getString(R.string.notSpace));
             checked = false;
         }
-    }
-
-    private void EventRules() {
-        String text = "Bằng việc đăng ký tài khoản, tôi đồng ý với Điều " +
-                "khoản và điều kiện và Chính sách bảo mật của ADIDI";
-        SpannableString s = new SpannableString(text);
-        ClickableSpan c1 = new ClickableSpan() {
-            @Override
-            public void onClick(View view) {
-            }
-
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(getResources().getColor(R.color.orange));
-            }
-        };
-        ClickableSpan c2 = new ClickableSpan() {
-            @Override
-            public void onClick(View view) {
-            }
-
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(getResources().getColor(R.color.orange));
-            }
-        };
-        s.setSpan(c1, 44, 67, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s.setSpan(c2, 71, 89, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        txt_rules.setText(s);
     }
 }

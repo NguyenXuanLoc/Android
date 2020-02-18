@@ -28,10 +28,11 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="130003" />
                             <entry key="opacityPercent" value="94" />
-                            <entry key="outputName" value="right_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Loc.A.Ka" />
+                            <entry key="outputName" value="ic_clipboard" />
+                            <entry key="sourceFile" value="C:\Users\Loc.A.Ka\Pictures\IconDoAn\clipboard (1).svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -67,19 +67,19 @@ public class Frag_Service_Oder extends Fragment {
     }
 
     private void init() {
-        layoutplace = view.findViewById(R.id.layoutplace);
+        layoutplace = view.findViewById(R.id.layoutPlace);
         dialogCam = new Dialog(getActivity());
         dialogCam.setContentView(R.layout.dialog_getimgage);
         layoutCam = dialogCam.findViewById(R.id.layout_Cam);
         layoutLir = dialogCam.findViewById(R.id.layout_Lir);
         arrCamera = new ArrayList<>();
-        ryCamera = view.findViewById(R.id.rycamera);
+        ryCamera = view.findViewById(R.id.ryImageCamera);
         adapterImgCamera = new Adapter_ImgCamera(getActivity(), arrCamera);
         LinearLayoutManager managerCamera = new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false);
         ryCamera.setLayoutManager(managerCamera);
         ryCamera.setAdapter(adapterImgCamera);
 
-        imgCamera = view.findViewById(R.id.img_camera);
+        imgCamera = view.findViewById(R.id.imgCamera);
         txt_Adress = view.findViewById(R.id.txt_Add);
         dialog = new Dialog(getActivity(), R.style.Dialog);
         dialog_product = new Dialog_product(getActivity());

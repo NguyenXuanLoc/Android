@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.locdaika.adidi.Fragment_Service.Frag_Service_Oder;
 import com.example.locdaika.adidi.Key.Key_intent;
@@ -39,9 +40,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 public class Service_Activity extends AppCompatActivity implements OnMapReadyCallback,
-        GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveStartedListener,
-        GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener,
-        LocationListener {
+        GoogleMap.OnCameraIdleListener, GoogleMap.OnCameraMoveListener, LocationListener {
 
     private static final int REQUEST_LOCATION = 1;
     androidx.appcompat.widget.Toolbar toolbar;
@@ -61,12 +60,12 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_);
         init();
-        handle();
+        eventHandle();
     }
 
-    private void handle() {
+    private void eventHandle() {
         Map();
-        get_Intent();
+        getDataIntent();
     }
 
     @SuppressLint("MissingPermission")
@@ -80,7 +79,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.black_24dp);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.whilte));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
     }
 
     @Override
@@ -99,9 +98,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnCameraIdleListener(this);
-        mMap.setOnCameraMoveStartedListener(this);
         mMap.setOnCameraMoveListener(this);
-        mMap.setOnCameraMoveCanceledListener(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -113,7 +110,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
 //        mMap.setMyLocationEnabled(true);
     }
 
-    public void get_Intent() {
+    public void getDataIntent() {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(Key_intent.Key_oder);
         if (bundle != null) {
@@ -132,27 +129,19 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
     }
 
     @Override
-    public void onCameraMoveStarted(int i) {
-        Log.d("Move", "Start");
-    }
-
-    @Override
     public void onCameraMove() {
         layout.setVisibility(View.INVISIBLE);
         Log.d("Move", "Move");
     }
 
-    @Override
-    public void onCameraMoveCanceled() {
-        Log.d("Move", "Stop");
-    }
 
     @SuppressLint("MissingPermission")
     @Override
     public void onLocationChanged(Location location) {
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-        mMap.animateCamera(cameraUpdate);
+        mMap.moveCamera(cameraUpdate);
+//      mMap.animateCamera(cameraUpdate);
         locationManager.removeUpdates(this);
         try {
             method_service.getAddress(geocoder, location.getLatitude(), location.getLongitude());

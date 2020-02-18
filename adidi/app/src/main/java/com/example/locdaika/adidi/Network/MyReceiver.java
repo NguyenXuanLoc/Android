@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
@@ -14,7 +15,7 @@ import androidx.cardview.widget.CardView;
 import com.example.locdaika.adidi.R;
 
 public class MyReceiver extends BroadcastReceiver {
-    CardView cardNetwork;
+    Button btnNetwork;
     Context context;
     Dialog dialog;
 
@@ -25,8 +26,8 @@ public class MyReceiver extends BroadcastReceiver {
         dialog = new Dialog(context);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_checknetwork);
-        cardNetwork = dialog.findViewById(R.id.cardNetwork);
-        cardNetwork.setOnClickListener(new View.OnClickListener() {
+        btnNetwork = dialog.findViewById(R.id.btnCheck);
+        btnNetwork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 context.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));

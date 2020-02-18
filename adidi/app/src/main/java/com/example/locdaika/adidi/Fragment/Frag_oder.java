@@ -31,7 +31,7 @@ public class Frag_oder extends Fragment {
 
     private void eventHandle() {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.oder);
+        toolbar.setTitle(R.string.Oder);
         setHasOptionsMenu(true);
     }
 

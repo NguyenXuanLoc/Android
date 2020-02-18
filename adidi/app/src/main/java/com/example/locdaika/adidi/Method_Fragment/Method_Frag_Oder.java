@@ -29,7 +29,7 @@ public class Method_Frag_Oder extends AppCompatActivity {
     }
     public void Spinner(Spinner spinner) {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
-                R.array.Spinner_Grounp, android.R.layout.simple_spinner_item);
+                R.array.spinnerGroup, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }

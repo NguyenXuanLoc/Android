@@ -3,65 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background_create_acount">
+    android:background="@drawable/background_create_account"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin20dp"
             android:src="@drawable/black_24dp" />
 
         <TextView
-            android:layout_gravity="center_vertical"
-            android:layout_margin="20dp"
+            style="@style/mediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/margin20dp"
+            android:layout_marginLeft="@dimen/margin10dp"
             android:fontFamily="serif"
-            android:text="@string/quenmatkhau"
-            android:textColor="@color/whilte"
-            android:textSize="@dimen/chuthuong" />
+            android:text="@string/forgotPass"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <EditText
+        android:inputType="number|phone"
+        android:maxLines="1"
         android:id="@+id/txt_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/khoangcach"
-        android:layout_marginRight="@dimen/khoangcach"
+        android:layout_marginLeft="@dimen/margin40dp"
+        android:layout_marginRight="@dimen/margin40dp"
         android:background="@drawable/shape_edt"
         android:fontFamily="serif"
-        android:hint="@string/nhapma"
-        android:padding="@dimen/pading" />
+        android:hint="@string/PhoneNumber"
+        android:padding="@dimen/padding15dp" />
 
     <Button
         android:id="@+id/btn_xacnhan"
-        android:layout_marginTop="@dimen/pading_top"
+        style="@style/buttonOrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_number"
-        android:layout_marginLeft="@dimen/khoangcach"
-        android:layout_marginRight="@dimen/khoangcach"
+        android:layout_marginLeft="@dimen/margin40dp"
+        android:layout_marginTop="@dimen/padding10dp"
+        android:layout_marginRight="@dimen/margin40dp"
         android:background="@drawable/select_create"
-        android:fontFamily="serif"
-        android:text="@string/xacnhan"
-        android:textColor="@color/whilte" />
+        android:text="@string/Commit" />
 
     <TextView
-        android:layout_below="@id/btn_xacnhan"
+        style="@style/smallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btn_xacnhan"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/khoangcach"
-        android:fontFamily="serif"
+        android:layout_margin="@dimen/margin40dp"
         android:gravity="center"
-        android:text="@string/maxacnhan"
-        android:textColor="@color/whilte"
-        android:textSize="@dimen/chunho" />
+        android:text="@string/codeCommit"
+        android:textColor="@color/white" />
 </RelativeLayout>

@@ -46,7 +46,7 @@ public class PlaceAutoSuggestAdapter extends ArrayAdapter implements Filterable 
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.row_search, parent, false);
         }
-        TextView txtAdd = convertView.findViewById(R.id.txt_row_Search);
+        TextView txtAdd = convertView.findViewById(R.id.txtAddress);
         txtAdd.setText(results.get(position));
         return convertView;
     }

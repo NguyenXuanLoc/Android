@@ -42,7 +42,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.SetupDelivery_Activity"></activity>
+        <activity android:name=".GoogleMap.SetupDelivery_Activity"></activity>
         <activity
             android:name=".GoogleMap.PickaPlace_Activity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -70,11 +70,11 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Activity.ForgotPass"
+            android:name=".Activity.ForgotPass_activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Activity.Main_page"
-            android:theme="@style/Botomnavigation" />
+            android:name=".Activity.MainPage_Activity"
+            android:theme="@style/bottomNavigation" />
         <activity
             android:name=".Activity.Service_Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

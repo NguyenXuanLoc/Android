@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        card_view:cardElevation="@dimen/cardElevation"
-        card_view:cardUseCompatPadding="true"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="@dimen/width_Cardview_service"
-        android:layout_height="@dimen/height_Cardview_service"
-        app:cardCornerRadius="@dimen/radius">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="@dimen/width130dp"
+        android:layout_height="@dimen/height130dp"
+        app:cardCornerRadius="@dimen/radius"
+        card_view:cardElevation="@dimen/card10dp"
+        card_view:cardUseCompatPadding="true">
+
         <LinearLayout
-            android:weightSum="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
+
             <ImageView
+                android:id="@+id/imgService"
+                android:layout_width="@dimen/width80dp"
+                android:layout_height="@dimen/height80dp"
                 android:layout_gravity="center_horizontal"
-                android:scaleType="fitCenter"
-                android:id="@+id/img_service"
                 android:layout_weight="1"
-                android:src="@drawable/service_rent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:scaleType="centerInside"
+                android:src="@drawable/service_rent" />
+
             <TextView
-                android:gravity="center"
-                android:id="@+id/txt_service"
-                android:fontFamily="serif"
-                android:textColor="@color/black"
-                style="@style/textview_thuong"
+                android:id="@+id/txtService"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name_service"/>
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/name_service" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

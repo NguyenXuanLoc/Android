@@ -1,8 +1,11 @@
 package com.example.locdaika.adidi.Method;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ScrollView;
 import android.widget.Toolbar;
 
@@ -34,7 +37,7 @@ public class Method_Fragmain extends AppCompatActivity {
     }
 
     public void eventRefresh(final SwipeRefreshLayout swipeRefreshLayout) {
-      swipeRefreshLayout.setColorSchemeColors(context.getResources().getColor(R.color.orange));
+        swipeRefreshLayout.setColorSchemeColors(context.getResources().getColor(R.color.orange));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -47,23 +50,30 @@ public class Method_Fragmain extends AppCompatActivity {
             }
         });
     }
-    public void eventScroll(NestedScrollView scrollView, final androidx.appcompat.widget.Toolbar toolbar) {
+
+    public void eventScroll(NestedScrollView scrollView, final androidx.appcompat.widget.Toolbar toolbar, final Window window) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        }
         if (scrollView != null) {
             scrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     if (scrollY > oldScrollY) {
-                        toolbar.setBackgroundColor(context.getResources().getColor(R.color.whilte));
+                        toolbar.setBackgroundColor(context.getResources().getColor(R.color.white));
                     }
                     if (scrollY == 0) {
-                     //   Log.d(TAG, "TOP SCROLL");
                         toolbar.setBackground(context.getResources().getDrawable(R.drawable.color_toolbar));
-                    //    setStatusBarGradiant(getActivity(), R.drawable.color_statusbar);
-                        //  toolbar.setBackgroundColor(getResources().getColor(R.color.orange));
                     }
                 }
             });
         }
     }
 
+    private void changeColorStatus(int drawable, Window window) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setBackgroundDrawable(getResources().getDrawable(drawable));
+        }
+    }
 }

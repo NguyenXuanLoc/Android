@@ -2,12 +2,10 @@ package com.example.locdaika.adidi.GoogleMap;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
@@ -22,18 +20,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.locdaika.adidi.Activity.Service_Activity;
-import com.example.locdaika.adidi.Activity.SetupDelivery_Activity;
+import com.example.locdaika.adidi.Key.Key_intent;
 import com.example.locdaika.adidi.Method.Method_PickPlace;
-import com.example.locdaika.adidi.Method.Method_Service;
 import com.example.locdaika.adidi.R;
-import com.example.locdaika.adidi.model.Service_model;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,20 +30,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.libraries.places.api.model.AutocompletePrediction;
-import com.google.android.libraries.places.api.net.PlacesClient;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
-public class PickaPlace_Activity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnCameraMoveListener,
-        LocationListener {
+public class PickaPlace_Activity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
     private GoogleMap mMap;
     LocationManager locationManager;
     private static final long MIN_TIME = 400;
@@ -76,7 +58,7 @@ public class PickaPlace_Activity extends AppCompatActivity implements OnMapReady
     @SuppressLint("MissingPermission")
     private void init() {
         txtAdd = findViewById(R.id.txtAdd);
-        btnPick = findViewById(R.id.btn_pick);
+        btnPick = findViewById(R.id.btnPickPlace);
         method_pickPlace = new Method_PickPlace(this);
         geocoder = new Geocoder(this, Locale.getDefault());
         listpoint = new ArrayList<>();
@@ -95,7 +77,9 @@ public class PickaPlace_Activity extends AppCompatActivity implements OnMapReady
         btnPick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(PickaPlace_Activity.this, method_pickPlace.getAddress().toString(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(PickaPlace_Activity.this, SetupDelivery_Activity.class);
+                intent.putExtra(Key_intent.keyTest, method_pickPlace.getAddress());
                 startActivity(intent);
             }
         });
@@ -129,7 +113,8 @@ public class PickaPlace_Activity extends AppCompatActivity implements OnMapReady
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                     try {
                         method_pickPlace.getAddress(geocoder, latLng.latitude, latLng.longitude);
-                        txtAdd.setText(method_pickPlace.address);
+                        txtAdd.setText(method_pickPlace.getAddress());
+                        // Toast.makeText(PickaPlace_Activity.this, method_pickPlace.getAddress(), Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -140,22 +125,16 @@ public class PickaPlace_Activity extends AppCompatActivity implements OnMapReady
     }
 
     @Override
-    public void onCameraMove() {
-
-    }
-
-    @Override
     public void onLocationChanged(Location location) {
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-        mMap.animateCamera(cameraUpdate);
+        mMap.moveCamera(cameraUpdate);
         locationManager.removeUpdates(this);
         mMap.setMyLocationEnabled(true);
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-
     }
 
     @Override

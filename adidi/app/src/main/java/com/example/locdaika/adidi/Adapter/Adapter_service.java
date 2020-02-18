@@ -54,21 +54,18 @@ public class Adapter_service extends RecyclerView.Adapter<Adapter_service.Viewho
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return arr.size();
     }
-
     class Viewholder extends RecyclerView.ViewHolder {
         ImageView img_service;
         TextView txt_service;
         View view;
-
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            img_service = itemView.findViewById(R.id.img_service);
-            txt_service = itemView.findViewById(R.id.txt_service);
+            img_service = itemView.findViewById(R.id.imgService);
+            txt_service = itemView.findViewById(R.id.txtService);
             view = itemView;
         }
     }

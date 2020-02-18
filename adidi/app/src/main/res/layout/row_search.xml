@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="horizontal"
     android:id="@+id/ryLayout_row"
-    android:padding="@dimen/pading_botom"
+    android:padding="@dimen/padding5dp"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/location" />
     <TextView
-        android:id="@+id/txt_row_Search"
-        style="@style/textview_thuong"
+        android:id="@+id/txtAddress"
+        style="@style/mediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/magin"
+        android:layout_marginLeft="@dimen/margin20dp"
         android:layout_toRightOf="@id/img"
-        android:fontFamily="serif"
-        android:text="@string/insert_Add"
-        android:textSize="@dimen/chuthuong" />
-</RelativeLayout>
+        android:text="@string/insertAddress" />
+</LinearLayout>

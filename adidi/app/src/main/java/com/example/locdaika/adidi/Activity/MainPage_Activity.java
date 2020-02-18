@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -38,16 +40,17 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class Main_page extends AppCompatActivity {
-    BottomNavigationView btnNa;
-    LinearLayout layoutSnack, mlayout;
+public class MainPage_Activity extends AppCompatActivity {
+    BottomNavigationView NaPick;
+    LinearLayout layoutSnack, mLayout;
     public static ArrayList<Slider_model> arr_prom;
-    public static ArrayList<Slider_model> arr_discover;
+    public static ArrayList<Slider_model> arrDiscover;
     public static ArrayList<Service_model> arr_Service;
-    public static ArrayList<Product_model> arr_Product;
+    public static ArrayList<Product_model> arrProduct;
     Data_Prom data_prom;
     Data_Discover data_discover;
     BroadcastReceiver MyReceiver = null; // Thành phần chạy ngầm kierm tra Internet
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,28 +60,30 @@ public class Main_page extends AppCompatActivity {
     }
 
     private void init() {
-        mlayout = findViewById(R.id.layout);
+        MyReceiver = new MyReceiver();
+        mLayout = findViewById(R.id.layout);
         data_discover = new Data_Discover(this);
         data_prom = new Data_Prom(this);
-        layoutSnack = findViewById(R.id.layoutsnack);
-        arr_Product = new ArrayList<>();
+        layoutSnack = findViewById(R.id.layoutSnack);
+        arrProduct = new ArrayList<>();
         arr_Service = new ArrayList<>();
-        arr_discover = new ArrayList<>();
+        arrDiscover = new ArrayList<>();
         arr_prom = new ArrayList<>();
-        btnNa = findViewById(R.id.btnNa);
-        btnNa.clearAnimation();
+        NaPick = findViewById(R.id.btnNa);
+        NaPick.clearAnimation();
     }
+
     private void eventHandle() {
         getSupportFragmentManager().beginTransaction().replace(R.id.layout, new Frag_main()).commit();
-        eventBotom();
+        eventNavigation();
         data_prom.add_prom();
         data_discover.add_discover();
         checkGPS();
-        MyReceiver= new MyReceiver();
         registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+//        test();
     }
-    private void eventBotom() {
-        btnNa.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private void eventNavigation() {
+        NaPick.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment = null;
@@ -105,21 +110,23 @@ public class Main_page extends AppCompatActivity {
             }
         });
     }
+
     private void checkGPS() {
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean enabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);
         if (!enabled) {
-            snackbar();
+            eventGPS();
         }
     }
-    private void snackbar() {
+
+    private void eventGPS() {
         final Snackbar snackbar = Snackbar.make(layoutSnack, "", Snackbar.LENGTH_LONG);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
-        View snackview = getLayoutInflater().inflate(R.layout.snack_gps, null);
+        View snackGPS = getLayoutInflater().inflate(R.layout.snack_gps, null);
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) layout.getLayoutParams();
         params.gravity = Gravity.TOP;
         layout.setLayoutParams(params);
-        snackview.setOnClickListener(new View.OnClickListener() {
+        snackGPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -127,8 +134,7 @@ public class Main_page extends AppCompatActivity {
             }
         });
         layout.setPadding(0, 0, 0, 0);
-        layout.addView(snackview, 0);
+        layout.addView(snackGPS, 0);
         snackbar.show();
-
     }
 }

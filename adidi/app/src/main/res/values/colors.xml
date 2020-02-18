@@ -5,14 +5,14 @@
     <color name="colorAccent">#D81B60</color>
     <color name="orange">#FA7C18</color>
     <color name="red_orange">#9c5237</color>
-    <color name="whilte">#ffffff</color>
+    <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="grey">#eae7e7</color>
     <color name="gray_search">#F1EEEE</color>
-    <color name="backdround">#F2F2F2</color>
-    <color name="red_toolbar">	#EF5529</color>
-    <color name="orange_toobar">#EB7D30</color>
+    <color name="whiteBackGround">#F2F2F2</color>
+    <color name="redToolbar">	#EF5529</color>
+    <color name="orangeToolbar">#EB7D30</color>
     <color name="gray">#d2cdcd</color>
-    <color name="grey_black">#545050</color>
+    <color name="grayBlack">#545050</color>
     <color name="blue">#28B6F7</color>
 </resources>

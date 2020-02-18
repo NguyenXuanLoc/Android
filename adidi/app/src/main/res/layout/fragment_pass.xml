@@ -9,9 +9,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/khoangcach"
-        android:background="@color/whilte"
-        app:cardCornerRadius="@dimen/card">
+        android:layout_margin="@dimen/margin40dp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/Card8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,13 +19,13 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/edt_number"
+                style="@style/mediumEditText"
+                android:id="@+id/edtPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:fontFamily="serif"
-                android:hint="@string/didong"
-                android:padding="@dimen/pading_top"  />
+                android:hint="@string/PhoneNumber"
+                android:padding="@dimen/padding10dp"  />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,37 +33,35 @@
                 android:background="@color/gray" />
 
             <EditText
+                style="@style/mediumEditText"
                 android:inputType="textPassword"
-                android:id="@+id/edt_pass"
+                android:id="@+id/edtPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:fontFamily="serif"
-                android:hint="@string/pass"
-                android:padding="@dimen/pading_top" />
+                android:hint="@string/passWord"
+                android:padding="@dimen/padding10dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btn_Login"
+        style="@style/buttonOrange"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/khoangcach"
-        android:layout_marginRight="@dimen/khoangcach"
+        android:layout_marginLeft="@dimen/margin40dp"
+        android:layout_marginRight="@dimen/margin40dp"
         android:background="@drawable/select_create"
-        android:fontFamily="serif"
-        android:text="@string/login"
-        android:textColor="@color/whilte" />
+        android:text="@string/Login" />
 
     <TextView
         android:id="@+id/txt_forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/khoangcach"
-        android:fontFamily="serif"
-        android:text="@string/forgotpass"
-        android:textColor="@color/whilte"
-        android:textSize="@dimen/chuthuong" />
+        android:layout_margin="@dimen/margin40dp"
+        android:text="@string/forgotPass"
+        android:textColor="@color/white"
+        style="@style/mediumText" />
 </LinearLayout>

@@ -21,14 +21,12 @@ public class Method_PickPlace extends AppCompatActivity {
     public String address = "";
     public String city = "";
     public String state = "";
-    public String zip = "";
     public String country = "";
     static String Eror = "Eror";
 
     public Method_PickPlace(Context context) {
         this.context = context;
     }
-
     public void getAddress(Geocoder geocoder, double latitude, double longitude) throws IOException {
         List<Address> addresses = null;
         addresses = geocoder.getFromLocation(latitude, longitude, 1);
@@ -37,7 +35,6 @@ public class Method_PickPlace extends AppCompatActivity {
         state = addresses.get(0).getAdminArea();
         country = addresses.get(0).getCountryName();
     }
-
     public boolean isGPSEnabled(Activity activity) {
         LocationManager lm = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
         boolean gps_enabled = false;
@@ -55,6 +52,46 @@ public class Method_PickPlace extends AppCompatActivity {
             Log.d(Eror, "network provider error : " + e.getMessage());
         }
         return !(!gps_enabled && !network_enabled);
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public static String getEror() {
+        return Eror;
+    }
+
+    public static void setEror(String eror) {
+        Eror = eror;
     }
 }
 

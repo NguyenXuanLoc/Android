@@ -13,8 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.locdaika.adidi.Activity.MainActivity;
-import com.example.locdaika.adidi.Activity.Main_page;
-import com.example.locdaika.adidi.Data.Data_Acount;
+import com.example.locdaika.adidi.Activity.MainPage_Activity;
+import com.example.locdaika.adidi.Data.DataAccount;
 import com.example.locdaika.adidi.R;
 
 import androidx.annotation.NonNull;
@@ -24,9 +24,9 @@ import androidx.fragment.app.Fragment;
 public class Frag_pass extends Fragment {
     TextView txt_forgot_pass;
     View view;
-    EditText edt_Number, edt_Pass;
+    EditText edtPhoneNumber, edtPass;
     Button btnLogin;
-    Data_Acount acount;
+    DataAccount acount;
 
     @Nullable
     @Override
@@ -39,12 +39,11 @@ public class Frag_pass extends Fragment {
     }
 
     private void init() {
-        acount = new Data_Acount();
-        edt_Number = view.findViewById(R.id.edt_number);
-        edt_Pass = view.findViewById(R.id.edt_pass);
-        btnLogin = view.findViewById(R.id.btn_Login);
+        acount = new DataAccount();
+        edtPhoneNumber = view.findViewById(R.id.edtPhoneNumber);
+        edtPass = view.findViewById(R.id.edtPass);
+        btnLogin = view.findViewById(R.id.btnLogin);
         txt_forgot_pass = view.findViewById(R.id.txt_forgot);
-
     }
 
     private void handeEvent() {
@@ -63,10 +62,10 @@ public class Frag_pass extends Fragment {
             @Override
             public void onClick(View view) {
                 if (checkNull() == true) {
-                    String Email = edt_Number.getText().toString();
-                    String Pass = edt_Pass.getText().toString();
+                    String Email = edtPhoneNumber.getText().toString();
+                    String Pass = edtPass.getText().toString();
                     if (acount.GetAcount(MainActivity.preferences, Email, Pass) == true) {
-                        Intent intent = new Intent(getActivity(), Main_page.class);
+                        Intent intent = new Intent(getActivity(), MainPage_Activity.class);
                         startActivity(intent);
                     } else
                         Toast.makeText(getActivity(), getResources().getText(R.string.wrongLogin), Toast.LENGTH_SHORT).show();
@@ -77,12 +76,12 @@ public class Frag_pass extends Fragment {
 
     public boolean checkNull() {
         int check = 1;
-        if (edt_Pass.getText().length() == 0) {
-            edt_Pass.setError(getResources().getString(R.string.check));
+        if (edtPass.getText().length() == 0) {
+            edtPass.setError(getResources().getString(R.string.notSpace));
             check = 0;
         }
-        if (edt_Number.getText().length() == 0) {
-            edt_Number.setError(getResources().getString(R.string.check));
+        if (edtPhoneNumber.getText().length() == 0) {
+            edtPhoneNumber.setError(getResources().getString(R.string.notSpace));
             check = 0;
         }
         if (check == 0) return false;

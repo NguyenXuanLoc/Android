@@ -1,6 +1,6 @@
 package com.example.locdaika.adidi.Data;
 
-import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Activity.MainPage_Activity;
 import com.example.locdaika.adidi.Method.Method_Fragmain;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Service_model;
@@ -18,11 +18,11 @@ public class Data_Service extends AppCompatActivity {
     }
 
     public void add_service() {
-        Main_page.arr_Service.clear();
-        Main_page.arr_Service.add(new Service_model(R.drawable.service_delivery, Method_Fragmain.TwoWord(service_delivery)));
-        Main_page.arr_Service.add(new Service_model(R.drawable.service_installation, Method_Fragmain.TwoWord(service_install)));
-        Main_page.arr_Service.add(new Service_model(R.drawable.service_ship, Method_Fragmain.TwoWord(service_ship)));
-        Main_page.arr_Service.add(new Service_model(R.drawable.service_guarantee, Method_Fragmain.TwoWord(service_guarantee)));
-        Main_page.arr_Service.add(new Service_model(R.drawable.service_rent, Method_Fragmain.TwoWord(service_rent)));
+        MainPage_Activity.arr_Service.clear();
+        MainPage_Activity.arr_Service.add(new Service_model(R.drawable.service_delivery, Method_Fragmain.TwoWord(service_delivery)));
+        MainPage_Activity.arr_Service.add(new Service_model(R.drawable.worker, Method_Fragmain.TwoWord(service_install)));
+        MainPage_Activity.arr_Service.add(new Service_model(R.drawable.delivery, Method_Fragmain.TwoWord(service_ship)));
+        MainPage_Activity.arr_Service.add(new Service_model(R.drawable.insurance, Method_Fragmain.TwoWord(service_guarantee)));
+        MainPage_Activity.arr_Service.add(new Service_model(R.drawable.pallet, Method_Fragmain.TwoWord(service_rent)));
     }
 }

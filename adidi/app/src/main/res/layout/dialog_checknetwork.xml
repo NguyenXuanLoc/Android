@@ -21,46 +21,36 @@
             android:src="@drawable/check_network" />
 
         <TextView
-            android:layout_marginTop="@dimen/magintop50dp"
-            style="@style/textview_thuong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:text="@string/feedbackNetwork"
-            android:textSize="@dimen/chunho" />
-
-        <TextView
-            style="@style/textview_thuong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="serif"
-            android:text="@string/checknetwork"
-            android:textSize="@dimen/chunho" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_marginBottom="@dimen/magin_botom"
-            android:id="@+id/cardNetwork"
+            style="@style/smallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/magin_top"
-            android:outlineAmbientShadowColor="@color/black"
-            app:cardBackgroundColor="@color/orange"
-            app:cardCornerRadius="@dimen/radius15"
-            card_view:cardElevation="1dp">
+            android:layout_marginTop="@dimen/margin50dp"
+            android:text="@string/feedbackNetwork" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@string/check"
-                android:paddingLeft="@dimen/pading_left"
-                android:paddingTop="@dimen/padingtop8dp"
-                android:paddingRight="@dimen/pading_right"
-                android:paddingBottom="@dimen/padingbottom8dp"
-                android:text="@string/gotosetting"
-                android:textColor="@color/whilte" />
-        </androidx.cardview.widget.CardView>
+        <TextView
+            style="@style/smallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/checkNetwork" />
+
+
+        <Button
+            android:id="@+id/btnCheck"
+            style="@style/buttonOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:layout_marginBottom="@dimen/margin5dp"
+            android:background="@drawable/select_button"
+            android:fontFamily="serif"
+            android:paddingLeft="@dimen/padding20dp"
+            android:paddingTop="@dimen/padding8dp"
+            android:paddingRight="@dimen/padding20dp"
+            android:paddingBottom="@dimen/padding8dp"
+            android:text="@string/goToSetting" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

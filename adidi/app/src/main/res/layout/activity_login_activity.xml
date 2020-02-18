@@ -1,58 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/background_create_acount">
+    android:background="@drawable/background_create_account"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="@dimen/pading_top"
-        android:layout_marginLeft="@dimen/pading_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding10dp"
+        android:layout_marginTop="@dimen/padding10dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/img_back"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/black_24dp" />
 
         <TextView
-            android:layout_gravity="center_vertical"
+            style="@style/mediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/magin_left"
-            android:fontFamily="serif"
-            android:text="@string/login"
-            android:textColor="@color/whilte"
-            android:textSize="@dimen/chuthuong" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin30dp"
+            android:text="@string/Login"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
-        app:tabIndicatorColor="@color/orange"
         android:id="@+id/tab_layout"
-        app:tabTextAppearance="@style/tab_text"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:tabTextColor="@color/whilte"
-        android:outlineAmbientShadowColor="@color/orange">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin30dp"
+        android:outlineAmbientShadowColor="@color/orange"
+        app:tabIndicatorColor="@color/orange"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/white">
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pass"/>
+            android:text="@string/passWord" />
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/CodeOtp"/>
+            android:text="@string/codeOtp" />
     </com.google.android.material.tabs.TabLayout>
+
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/layout"/>
+        android:orientation="vertical" />
 </LinearLayout>

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/color_toolbar"
-        app:titleTextColor="@color/whilte" />
+        app:titleTextColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,9 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        android:layout_marginRight="@dimen/magin10dp"
-        android:layout_marginLeft="@dimen/magin10dp"
-        android:layout_marginBottom="@dimen/magin10dp"
+        android:layout_marginRight="@dimen/margin10dp"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_marginBottom="@dimen/margin10dp"
         android:background="@drawable/shape_layout_frag_oder">
 
         <ImageView
@@ -36,13 +36,12 @@
             android:src="@drawable/list_oder" />
 
         <TextView
-            style="@style/textview_thuong"
+            style="@style/smallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/img"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/magin_top"
-            android:fontFamily="serif"
+            android:layout_marginTop="@dimen/margin10dp"
             android:text="@string/notOder" />
     </RelativeLayout>
 </RelativeLayout>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <ImageView
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_create_acount"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_create_account" />
+
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
@@ -20,31 +21,31 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_gravity="center_vertical"
                 android:id="@+id/img_back"
-                android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="20dp"
                 android:src="@drawable/black_24dp" />
 
             <TextView
-                android:layout_gravity="center_vertical"
-                android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="20dp"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="serif"
-                android:text="@string/dangky"
-                android:textColor="@color/whilte"
+                android:text="@string/createAccount"
+                android:textColor="@color/white"
                 android:textSize="@dimen/chuthuong" />
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="@dimen/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:background="@color/whilte">
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/Card8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,23 +60,21 @@
                     android:weightSum="2">
 
                     <EditText
-                        android:backgroundTint="@color/orange"
                         android:id="@+id/edt_lastname"
+                        style="@style/mediumEditText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="serif"
-                        android:hint="@string/ten" />
+                        android:hint="@string/Name" />
 
                     <EditText
-                        android:backgroundTint="@color/orange"
                         android:id="@+id/edt_firstname"
+                        style="@style/mediumEditText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:fontFamily="serif"
-                        android:hint="@string/ho" />
+                        android:hint="@string/firstName" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -105,72 +104,67 @@
                         android:src="@drawable/ic_arrow_drop_down_black_24dp" />
 
                     <EditText
-                        android:backgroundTint="@color/orange"
                         android:id="@+id/edt_number"
+                        style="@style/mediumEditText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="2"
-                        android:fontFamily="serif"
-                        android:hint="@string/didong" />
+                        android:hint="@string/Phone"
+                        android:inputType="phone" />
                 </LinearLayout>
 
                 <EditText
-                    android:backgroundTint="@color/orange"
                     android:id="@+id/edt_email"
+                    style="@style/mediumEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="serif"
-                    android:hint="@string/email"
-                    android:textSize="@dimen/chuthuong" />
+                    android:hint="@string/Email"
+                    android:inputType="textEmailAddress" />
 
                 <EditText
-                    android:backgroundTint="@color/orange"
                     android:id="@+id/edt_pass"
+                    style="@style/mediumEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="serif"
-                    android:hint="@string/matkhau"
-                    android:textSize="@dimen/chuthuong" />
+                    android:hint="@string/Pass"
+                    android:inputType="textPassword" />
 
                 <EditText
-                    android:backgroundTint="@color/orange"
                     android:id="@+id/edt_code"
+                    style="@style/mediumEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:fontFamily="serif"
-                    android:hint="@string/magioithieu"
-                    android:textSize="@dimen/chuthuong" />
+                    android:hint="@string/referralCode" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/btn_create"
+            style="@style/buttonOrange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/margin20dp"
+            android:layout_marginRight="@dimen/margin20dp"
             android:background="@drawable/select_create"
-            android:fontFamily="serif"
-            android:text="@string/dangky"
-            android:textColor="@color/whilte" />
+            android:text="@string/create_Account" />
     </LinearLayout>
+
     <TextView
-        android:id="@+id/rules"
+        android:id="@+id/txtRules"
+        style="@style/smallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/khoangcach"
-        android:fontFamily="serif"
+        android:layout_marginBottom="@dimen/margin40dp"
         android:gravity="center"
         android:text="Điều khoản và điều kiện và chính sách bảo mật"
-        android:textColor="@color/whilte"
-        android:textSize="@dimen/chunho" />
+        android:textColor="@color/white" />
 </RelativeLayout>

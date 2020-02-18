@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/height_LayoutDialogCam"
+    android:layout_width="@dimen/height300dp"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog_cam"
     android:orientation="vertical">
 
     <TextView
-        style="@style/textview_indam"
+        style="@style/smallText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/magin_top"
-        android:fontFamily="serif"
-        android:text="@string/InsertImg" />
+        android:layout_marginTop="@dimen/margin10dp"
+        android:text="@string/insertImage" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/maginTop_Dialogcam"
-        app:cardCornerRadius="@dimen/radius_Dialogcam">
+        android:layout_marginTop="@dimen/margin20dp"
+        app:cardCornerRadius="@dimen/radius20dp">
 
         <RelativeLayout
             android:id="@+id/layout_Cam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/pading_Dialogcam"
+            android:padding="@dimen/padding5dp"
             android:weightSum="1">
 
             <TextView
                 android:id="@+id/txt1"
-                style="@style/textview_thuong"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="serif"
-                android:text="@string/FromCam"
-                android:textSize="@dimen/chunho" />
+                android:text="@string/FromCam" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -53,30 +49,28 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginBottom="@dimen/maginBottom_Dialogcam"
+        android:layout_marginBottom="@dimen/margin30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/maginTop_Dialogcam"
-        app:cardCornerRadius="@dimen/radius_Dialogcam">
+        android:layout_marginTop="@dimen/margin20dp"
+        app:cardCornerRadius="@dimen/radius20dp">
 
         <RelativeLayout
             android:id="@+id/layout_Lir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/pading_Dialogcam">
+            android:padding="@dimen/padding5dp">
 
             <TextView
                 android:id="@+id/txt2"
-                style="@style/textview_thuong"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="serif"
-                android:text="@string/FromLir"
-                android:textSize="@dimen/chunho" />
+                android:text="@string/FromLir" />
 
             <ImageView
                 android:layout_width="wrap_content"

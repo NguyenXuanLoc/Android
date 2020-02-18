@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/color_toolbar"
-        app:title="Nguyễn Xuân Lộc" />
+        app:title="@string/nameTest" />
 
     <FrameLayout
         android:layout_width="match_parent"

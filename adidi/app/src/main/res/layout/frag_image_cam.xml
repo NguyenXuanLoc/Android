@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@color/whilte">
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,10 +15,10 @@
             style="@style/textview_thuong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/magin"
+            android:layout_margin="@dimen/margin20dp"
             android:fontFamily="serif"
-            android:text="@string/TryAgain"
-            android:textColor="@color/whilte"
+            android:text="@string/tryAgain"
+            android:textColor="@color/white"
             android:textSize="@dimen/chuthuong" />
 
         <TextView
@@ -26,10 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/magin"
+            android:layout_margin="@dimen/margin20dp"
             android:fontFamily="serif"
             android:text="@string/Save"
-            android:textColor="@color/whilte"
+            android:textColor="@color/white"
             android:textSize="@dimen/chuthuong" />
     </RelativeLayout>
 

@@ -1,9 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backdround">
+    android:background="@color/whiteBackGround">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -32,20 +31,20 @@
                 android:layout_width="272dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/magin_top"
+                android:layout_marginLeft="@dimen/margin10dp"
                 android:layout_weight="1"
                 android:fontFamily="serif"
-                android:text="@string/name" />
+                android:text="@string/nameTest" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/magin">
+                android:layout_marginRight="@dimen/margin20dp">
 
                 <TextView
                     android:id="@+id/txt_number"
-                    android:layout_width="@dimen/width_textview_toolbar"
-                    android:layout_height="@dimen/height_textview_toolbar"
+                    android:layout_width="@dimen/width30dp"
+                    android:layout_height="@dimen/height20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/shape_textview"
@@ -56,15 +55,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/magin"
+                    android:layout_marginLeft="@dimen/margin20dp"
                     android:src="@drawable/icon_hourglass" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/Refreshlayout"
-        style="@style/Botomnavigation"
+        android:id="@+id/refreshLayout"
+        style="@style/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar">
@@ -84,20 +83,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/heightImg"
-                        android:layout_below="@id/toolbar"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/color_toolbar" />
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_Cardview"
-                        android:layout_margin="@dimen/magin"
+                        android:layout_height="@dimen/height140dp"
+                        android:layout_margin="@dimen/margin20dp"
                         android:outlineAmbientShadowColor="@color/black"
                         app:cardCornerRadius="@dimen/radius"
-                        app:cardElevation="@dimen/cardElevation">
+                        app:cardElevation="@dimen/card10dp">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -106,64 +98,71 @@
                             android:scaleType="fitXY"
                             android:src="@drawable/card" />
                     </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height70dp"
+                        android:layout_below="@id/toolbar"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/color_toolbar" />
                 </FrameLayout>
 
                 <TextView
-                    style="@style/textview_indam"
+                    style="@style/mediumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="@string/luachondichvu" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/pickService" />
 
                 <TextView
-                    style="@style/textview_thuong"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/smallText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="@string/tietkiemchiphi" />
+                    android:text="@string/saveTime" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/re_service"
+                    android:id="@+id/ryService"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/magin_top"
-                    android:layout_marginRight="@dimen/magin_top" />
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_marginRight="@dimen/margin10dp" />
 
                 <TextView
-                    style="@style/textview_indam"
+                    style="@style/mediumText"
+                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/magin_left"
-                    android:fontFamily="serif"
-                    android:text="@string/uudai" />
+                    android:layout_marginTop="@dimen/margin30dp"
+                    android:text="@string/Endow" />
 
                 <com.smarteist.autoimageslider.IndicatorView.PageIndicatorView
-                    android:id="@+id/dots_prom"
+                    android:id="@+id/dotsProm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     app:piv_animationType="scale_down"
-                    app:piv_radius="@dimen/piv_radius"
                     app:piv_dynamicCount="true"
                     app:piv_interactiveAnimation="true"
+                    app:piv_radius="@dimen/radius3dp"
                     app:piv_selectedColor="@color/orange"
                     app:piv_unselectedColor="@color/gray" />
 
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/pager_Prom"
+                    android:id="@+id/pagerProm"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:layout_margin="@dimen/magin_top"
+                    android:layout_height="@dimen/height300dp"
+                    android:layout_margin="@dimen/margin10dp"
                     android:clipToPadding="false"
                     android:foregroundGravity="center"
                     android:overScrollMode="never" />
 
                 <TextView
-                    style="@style/textview_indam"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/mediumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:text="@string/discover" />
+                    android:text="@string/Discover" />
 
                 <com.smarteist.autoimageslider.IndicatorView.PageIndicatorView
                     android:id="@+id/dots_discover"
@@ -171,17 +170,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     app:piv_animationType="scale"
-                    app:piv_radius="@dimen/piv_radius"
                     app:piv_dynamicCount="true"
                     app:piv_interactiveAnimation="true"
+                    app:piv_radius="@dimen/radius3dp"
                     app:piv_selectedColor="@color/orange"
                     app:piv_unselectedColor="@color/gray" />
 
                 <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/pager_discover"
+                    android:id="@+id/pagerDiscover"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:layout_margin="@dimen/magin_top"
+                    android:layout_height="@dimen/height300dp"
+                    android:layout_margin="@dimen/margin10dp"
                     android:clipToPadding="false"
                     android:foregroundGravity="center"
                     android:overScrollMode="never" />
@@ -190,30 +189,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/magin_botom"
-                    app:cardCornerRadius="@dimen/card_radius_semore">
+                    android:layout_marginBottom="@dimen/margin30dp"
+                    app:cardCornerRadius="@dimen/card15dp">
 
                     <RelativeLayout
-                        android:padding="3dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:padding="3dp">
 
                         <TextView
                             android:id="@+id/text2"
-                            style="@style/textview_thuong"
+                            style="@style/smallText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerInParent="false"
                             android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:text="@string/xemthem" />
+                            android:layout_marginStart="@dimen/margin10dp"
+                            android:text="@string/seeMore" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:layout_marginLeft="@dimen/magin_left"
+                            android:layout_marginLeft="@dimen/margin30dp"
                             android:layout_toRightOf="@id/text2"
                             android:src="@drawable/next" />
                     </RelativeLayout>

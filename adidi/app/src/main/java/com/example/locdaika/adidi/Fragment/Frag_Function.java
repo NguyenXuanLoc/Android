@@ -28,7 +28,7 @@ public class Frag_Function extends Fragment {
 
     private void eventHandle() {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.funtion);
+        toolbar.setTitle(R.string.Function);
         setHasOptionsMenu(true);
     }
 

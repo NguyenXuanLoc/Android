@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="20dp">
+        android:layout_margin="@dimen/margin10dp"
+        app:cardCornerRadius="@dimen/radius20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,9 +18,9 @@
             <ImageView
                 android:id="@+id/img_promotion"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/height200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/background_create_acount" />
+                android:src="@drawable/background_create_account" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -31,42 +31,37 @@
                 android:background="@color/orange" />
 
             <TextView
-                android:fontFamily="serif"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/layout"
-                android:id="@+id/txt_name_promtion"
-                style="@style/textview_thuong"
-                android:layout_width="250dp"
+                android:id="@+id/txtTitlePromotion"
+                style="@style/smallText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/uudai"
-                android:textColor="@color/black"
-                android:textSize="@dimen/chuthuong" />
+                android:text="@string/Endow"/>
             <TextView
-                android:fontFamily="serif"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/txt_name_promtion"
-                android:id="@+id/txt_Info_promtion"
-                style="@style/textview_thuong"
-                android:layout_width="250dp"
+                android:layout_below="@id/txtTitlePromotion"
+                android:id="@+id/txtInfoPromotion"
+                style="@style/smallText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="@string/uudai"
-                android:textSize="@dimen/chuthuong" />
+                android:text="@string/Endow"/>
 
             <TextView
                 android:fontFamily="serif"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/txt_Info_promtion"
-                android:id="@+id/txt_seemore_promtion"
+                android:layout_below="@id/txtInfoPromotion"
+                android:id="@+id/txtSeeMore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/magin_top"
-                android:layout_marginBottom="@dimen/magin_top"
-                android:text="@string/xemthem"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:layout_marginBottom="@dimen/margin10dp"
+                android:text="@string/seeMore"
                 android:textColor="@color/orange" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

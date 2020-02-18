@@ -10,14 +10,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.locdaika.adidi.GoogleMap.PickaPlace_Activity;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.SearchPlace.PlaceAutoSuggestAdapter;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -25,19 +22,19 @@ public class SearchAdd_Activity extends AppCompatActivity {
     AutoCompleteTextView autoSearch;
     final int Request_Speech = 1;
     ImageView imgMic;
-    RelativeLayout ryPick;
+    RelativeLayout layoutPickPlace;
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_serach_add_);
+        setContentView(R.layout.activity_search_add_);
         init();
         eventHandle();
     }
 
     private void eventHandle() {
-        ryPick.setOnClickListener(new View.OnClickListener() {
+        layoutPickPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SearchAdd_Activity.this,PickaPlace_Activity.class));
@@ -53,13 +50,11 @@ public class SearchAdd_Activity extends AppCompatActivity {
     }
 
     private void init() {
-        ryPick = findViewById(R.id.layout_pick);
+        layoutPickPlace = findViewById(R.id.layoutPickPlace);
         imgMic = findViewById(R.id.imgMic);
         autoSearch = findViewById(R.id.edtSearch);
     }
-
     public void speak() {
-        //intent to show speẹch dialog
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());

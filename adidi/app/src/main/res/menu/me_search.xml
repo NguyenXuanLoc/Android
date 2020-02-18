@@ -4,10 +4,10 @@
     <item
         android:id="@+id/me_voice"
         android:icon="@drawable/ic_mic_black_24dp"
-        android:title="@string/voice"
+        android:title="@string/Voice"
         app:showAsAction="always" />
     <item
-        android:title="@string/clear"
+        android:title="@string/Clear"
         android:icon="@drawable/ic_clear"
         app:showAsAction="always" />
 </menu>

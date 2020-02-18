@@ -8,7 +8,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whilte">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/imgback"
+                android:id="@+id/imgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -25,16 +25,16 @@
 
             <AutoCompleteTextView
                 android:id="@+id/edtSearch"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/magin"
+                android:layout_marginLeft="@dimen/margin20dp"
                 android:layout_weight="1"
                 android:background="@null"
                 android:dropDownAnchor="@id/layout"
                 android:dropDownWidth="match_parent"
                 android:dropDownHeight="wrap_content"
-                android:fontFamily="serif"
-                android:hint="@string/search"
+                android:hint="@string/Search"
                 android:imeOptions="actionSearch"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -61,21 +61,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/orange" />
+            android:background="@color/orange"
+            android:orientation="vertical" />
+
         <LinearLayout
             android:id="@+id/layout"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_layout_Drop" />
+            android:layout_height="@dimen/height6dp"
+            android:orientation="vertical" />
+
         <RelativeLayout
-            android:id="@+id/layout_pick"
+            android:id="@+id/layoutPickPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/magin"
+            android:layout_margin="@dimen/margin20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -86,21 +89,19 @@
                 android:src="@drawable/location" />
 
             <TextView
-                style="@style/textview_thuong"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10dp"
                 android:layout_toRightOf="@id/img1"
-                android:fontFamily="serif"
-                android:text="@string/Chooseonmap"
-                android:textSize="@dimen/chunho" />
+                android:text="@string/chooseOnMap" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layout_dilery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/magin"
+            android:layout_marginLeft="@dimen/margin20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -111,14 +112,13 @@
                 android:src="@drawable/list" />
 
             <TextView
-                style="@style/textview_thuong"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10dp"
+                style="@style/smallText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/img2"
-                android:fontFamily="serif"
-                android:text="@string/Listdelivery"
-                android:textSize="@dimen/chunho" />
+                android:text="@string/listDelivery" />
         </RelativeLayout>
 
         <LinearLayout

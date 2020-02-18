@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.locdaika.adidi.Activity.Main_page;
+import com.example.locdaika.adidi.Activity.MainPage_Activity;
 import com.example.locdaika.adidi.R;
 import com.example.locdaika.adidi.model.Slider_model;
 
@@ -29,9 +29,9 @@ public class Data_Discover extends AppCompatActivity {
         String title_thacmac = "THẮC MẮC VỀ MỘT NGÀY LÀM VIỆC CỦA CÁC ANH ĐỐI TÁC ";
         String content_thacmac = "ADiDi LÀ NHƯ THẾ NÀO?\", \"Thì sáng sớm ra cafe, tối khuya trở về nhà, còn trong khoảng từ sáng tới tối thì tất bật ngang dọc đẻ\" +\n" +
                 "                \"mang đến cho khách hàng những dịch vụ tối ưu nhất vì với ADiDi sự hài lòng, tin tưởng của khách hàng là ưu tiên hàng đầu!!!!";
-        Main_page.arr_discover.add(new Slider_model(R.drawable.discover_thacmac, title_thacmac, content_thacmac, ""));
-        Main_page.arr_discover.add(new Slider_model(R.drawable.discover_vanchuyen, title_vanchuyen, content_vanchuyen, ""));
-        Main_page.arr_discover.add(new Slider_model(R.drawable.discover_quockhanh, title_quockhanh, content_quockhanh, ""));
+        MainPage_Activity.arrDiscover.add(new Slider_model(R.drawable.discover_thacmac, title_thacmac, content_thacmac, ""));
+        MainPage_Activity.arrDiscover.add(new Slider_model(R.drawable.discover_vanchuyen, title_vanchuyen, content_vanchuyen, ""));
+        MainPage_Activity.arrDiscover.add(new Slider_model(R.drawable.discover_quockhanh, title_quockhanh, content_quockhanh, ""));
     }
 
 }

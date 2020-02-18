@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.locdaika.adidi.R;
 
-public class ForgotPass extends AppCompatActivity {
+public class ForgotPass_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
