@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.locdaika.adidi.Activity.SearchAdd_Activity;
 import com.example.locdaika.adidi.Activity.Service_Activity;
 import com.example.locdaika.adidi.Key.Key_intent;
 import com.example.locdaika.adidi.R;
@@ -46,10 +48,11 @@ public class Adapter_service extends RecyclerView.Adapter<Adapter_service.Viewho
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,Service_Activity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(Key_intent.Key_oder,model);
-                intent.putExtra(Key_intent.Key_oder,bundle);
+//                Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, SearchAdd_Activity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable(Key_intent.Key_oder,model);
+//                intent.putExtra(Key_intent.Key_oder,bundle);
                 context.startActivity(intent);
             }
         });

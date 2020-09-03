@@ -22,7 +22,7 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         this.context = context;
-        String status = NetworkUtil.getConnectivityStatusString(context);
+            String status = NetworkUtil.getConnectivityStatusString(context);
         dialog = new Dialog(context);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_checknetwork);

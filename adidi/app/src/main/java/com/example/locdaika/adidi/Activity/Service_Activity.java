@@ -60,7 +60,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_);
         init();
-        eventHandle();
+//        eventHandle();
     }
 
     private void eventHandle() {
@@ -75,6 +75,7 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this); //You can also use LocationManager.GPS_PROVIDER and LocationManager.PASSIVE_PROVIDER
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+
         layout = findViewById(R.id.mylayout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -141,7 +142,6 @@ public class Service_Activity extends AppCompatActivity implements OnMapReadyCal
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
         mMap.moveCamera(cameraUpdate);
-//      mMap.animateCamera(cameraUpdate);
         locationManager.removeUpdates(this);
         try {
             method_service.getAddress(geocoder, location.getLatitude(), location.getLongitude());

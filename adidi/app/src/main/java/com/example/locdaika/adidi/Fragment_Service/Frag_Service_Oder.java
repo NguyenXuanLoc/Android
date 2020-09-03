@@ -151,12 +151,10 @@ public class Frag_Service_Oder extends Fragment {
             }
         });
     }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onResultReceived(String result) {
         txt_Adress.setText(result.toString());
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
